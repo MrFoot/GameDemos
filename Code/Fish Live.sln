@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fish Live.CSharp.Plugins", "Fish Live.CSharp.Plugins.csproj", "{26E0B0A1-8FBF-2CFA-8F1D-B50DAD2BCFEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fish Live.CSharp.Editor", "Fish Live.CSharp.Editor.csproj", "{F7977825-52E8-6B50-2CA5-F1E7DC7DA181}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26E0B0A1-8FBF-2CFA-8F1D-B50DAD2BCFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E0B0A1-8FBF-2CFA-8F1D-B50DAD2BCFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E0B0A1-8FBF-2CFA-8F1D-B50DAD2BCFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E0B0A1-8FBF-2CFA-8F1D-B50DAD2BCFEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7977825-52E8-6B50-2CA5-F1E7DC7DA181}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7977825-52E8-6B50-2CA5-F1E7DC7DA181}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7977825-52E8-6B50-2CA5-F1E7DC7DA181}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7977825-52E8-6B50-2CA5-F1E7DC7DA181}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
