@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf30f4b033a832548974fdb03fc95ff4, type: 3}
+  m_Name: FarmSeedTable
+  m_EditorClassIdentifier: 
+  IDs: 65000000660000006700000068000000690000006a000000c9000000ca000000cb000000cc000000cd000000ce000000
+  FarmSeedTableList:
+  - Id: 101
+    Seedtype: 10
+    Name: "\u82F9\u679C"
+    Icon: icon_apple
+    Costtype: 1
+    Price: 50
+    Needtime: 30
+    Gaintype: 1
+    Gaingold: 100
+    Midtype: apple_mid
+    Finaltype: apple_final
+  - Id: 102
+    Seedtype: 10
+    Name: "\u6A59\u5B50"
+    Icon: icon_orange
+    Costtype: 1
+    Price: 50
+    Needtime: 30
+    Gaintype: 1
+    Gaingold: 100
+    Midtype: orange_mid
+    Finaltype: orange_final
+  - Id: 103
+    Seedtype: 10
+    Name: "\u9999\u8549"
+    Icon: icon_banana
+    Costtype: 1
+    Price: 50
+    Needtime: 60
+    Gaintype: 1
+    Gaingold: 150
+    Midtype: banana_mid
+    Finaltype: banana_final
+  - Id: 104
+    Seedtype: 10
+    Name: "\u6843\u5B50"
+    Icon: icon_peach
+    Costtype: 1
+    Price: 100
+    Needtime: 60
+    Gaintype: 1
+    Gaingold: 200
+    Midtype: peach_mid
+    Finaltype: peach_final
+  - Id: 105
+    Seedtype: 10
+    Name: "\u8349\u8393"
+    Icon: icon_strawberry
+    Costtype: 1
+    Price: 100
+    Needtime: 120
+    Gaintype: 1
+    Gaingold: 300
+    Midtype: strawberry_mid
+    Finaltype: strawberry_final
+  - Id: 106
+    Seedtype: 10
+    Name: "\u8461\u8404"
+    Icon: icon_grape
+    Costtype: 1
+    Price: 100
+    Needtime: 120
+    Gaintype: 1
+    Gaingold: 300
+    Midtype: grape_mid
+    Finaltype: grape_final
+  - Id: 201
+    Seedtype: 20
+    Name: "\u9EC4\u74DC"
+    Icon: 'icon_cucumber '
+    Costtype: 1
+    Price: 50
+    Needtime: 30
+    Gaintype: 1
+    Gaingold: 100
+    Midtype: cucumber _mid
+    Finaltype: cucumber _final
+  - Id: 202
+    Seedtype: 20
+    Name: "\u897F\u7EA2\u67FF"
+    Icon: icon_tomato
+    Costtype: 1
+    Price: 50
+    Needtime: 30
+    Gaintype: 1
+    Gaingold: 100
+    Midtype: tomato_mid
+    Finaltype: tomato_final
+  - Id: 203
+    Seedtype: 20
+    Name: "\u8304\u5B50"
+    Icon: icon_eggplant
+    Costtype: 1
+    Price: 50
+    Needtime: 60
+    Gaintype: 1
+    Gaingold: 150
+    Midtype: eggplant_mid
+    Finaltype: eggplant_final
+  - Id: 204
+    Seedtype: 20
+    Name: "\u767D\u83DC"
+    Icon: icon_cabbage
+    Costtype: 1
+    Price: 100
+    Needtime: 60
+    Gaintype: 1
+    Gaingold: 200
+    Midtype: cabbage_mid
+    Finaltype: cabbage_final
+  - Id: 205
+    Seedtype: 20
+    Name: "\u80E1\u841D\u535C"
+    Icon: icon_carrot
+    Costtype: 1
+    Price: 100
+    Needtime: 120
+    Gaintype: 1
+    Gaingold: 300
+    Midtype: carrot_mid
+    Finaltype: carrot_final
+  - Id: 206
+    Seedtype: 20
+    Name: "\u5357\u74DC"
+    Icon: icon_pumpkin
+    Costtype: 1
+    Price: 100
+    Needtime: 120
+    Gaintype: 1
+    Gaingold: 300
+    Midtype: pumpkin_mid
+    Finaltype: pumpkin_final

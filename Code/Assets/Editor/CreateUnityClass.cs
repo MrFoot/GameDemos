@@ -451,7 +451,6 @@ class CreateUnityClass
            
             List<NestClassInfo> nestClassInfo = new List<NestClassInfo>();
             Dictionary<int, FieldInfoTable> commonFieldInfo = new Dictionary<int, FieldInfoTable>();
-            Dictionary<int, AssistInfo> AssistInfo = new Dictionary<int, AssistInfo>();
 
             string InstancePath = ResConfDataRow[i][ResConfResourceFile].ToString();
             string sheet = InstancePath.Substring(InstancePath.LastIndexOf(":") + 1);
@@ -951,8 +950,6 @@ class CreateUnityClass
                 {
                     if (field.StrArrLen > 1)
                     {
-                        string subStr = field.FieldNote;
-
                         List<NestClassInfo> nestClassList = AllNestInfo[kvp.Key];
 
                         for (int i = 0; i < nestClassList.Count; ++i)
@@ -1055,8 +1052,6 @@ class CreateUnityClass
                     }
                     else
                     {
-                        string subStr = field.FieldNote;
-  
                          List<NestClassInfo> nestClassList = AllNestInfo[kvp.Key];
                         for (int i = 0; i < nestClassList.Count; ++i)
                         {
@@ -1505,7 +1500,6 @@ class CreateUnityClass
                     IRow row = sheet.GetRow(i);
                     if (row == null) continue; //没有数据的行默认是null　　　　　　　  
 
-                    bool mark = false;
                     DataRow dataRow = data.NewRow();
 
                     for (int j = row.FirstCellNum; j < cellCount; ++j)

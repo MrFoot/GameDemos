@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 656514162b4398a438d19d03a57f9bc0, type: 3}
+  m_Name: FarmLandTable
+  m_EditorClassIdentifier: 
+  IDs: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  FarmLandTableList:
+  - Id: 1
+    Needlv: 1
+    Costtype: 1
+    Num: 0
+  - Id: 2
+    Needlv: 1
+    Costtype: 1
+    Num: 0
+  - Id: 3
+    Needlv: 1
+    Costtype: 1
+    Num: 0
+  - Id: 4
+    Needlv: 3
+    Costtype: 1
+    Num: 200
+  - Id: 5
+    Needlv: 5
+    Costtype: 1
+    Num: 300
+  - Id: 6
+    Needlv: 8
+    Costtype: 1
+    Num: 400
+  - Id: 7
+    Needlv: 10
+    Costtype: 1
+    Num: 500
+  - Id: 8
+    Needlv: 12
+    Costtype: 1
+    Num: 600
+  - Id: 9
+    Needlv: 15
+    Costtype: 1
+    Num: 700
+  - Id: 10
+    Needlv: 18
+    Costtype: 1
+    Num: 800
+  - Id: 11
+    Needlv: 20
+    Costtype: 1
+    Num: 900
+  - Id: 12
+    Needlv: 25
+    Costtype: 1
+    Num: 1000

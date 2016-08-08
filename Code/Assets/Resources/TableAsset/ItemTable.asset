@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46083f81f58e9cd428c2fc138e20fe5b, type: 3}
+  m_Name: ItemTable
+  m_EditorClassIdentifier: 
+  IDs: 311b0f00321b0f00331b0f00341b0f00
+  ItemTableList:
+  - Id: 990001
+    Name: "\u91D1\u5E01"
+    Description: "\u65E0"
+  - Id: 990002
+    Name: "\u7ECF\u9A8C"
+    Description: "\u7528\u4E8E\u89D2\u8272\u5347\u7EA7"
+  - Id: 990003
+    Name: "\u6C38\u4E45\u53CC\u500D\u91D1\u5E01"
+    Description: "\u83B7\u5F97\u91D1\u5E01\u6C38\u4E45\u6027\u7FFB\u500D"
+  - Id: 990004
+    Name: "\u94BB\u77F3"
+    Description: "\u65E0"
