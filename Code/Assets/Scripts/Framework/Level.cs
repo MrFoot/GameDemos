@@ -9,6 +9,12 @@ public class Level
 		Kitchen,
 		Bathroom,
 		Bedroom,
+		EditKitchen,
+		EditTerrace,
+		EditBathroom,
+		EditBedroom,
+		Wardrobe,
+		Farm,
 	}
 
 	public static readonly Level Terrace = new Level("Terrace", Level.LevelEnum.Terrace);
@@ -19,12 +25,30 @@ public class Level
 	
 	public static readonly Level Bedroom = new Level("Bedroom", Level.LevelEnum.Bedroom);
 
+	public static readonly Level EditTerrace = new Level("EditTerrace", Level.LevelEnum.EditTerrace);
+
+	public static readonly Level EditKitchen = new Level("EditKitchen", Level.LevelEnum.EditKitchen);
+
+	public static readonly Level EditBathroom = new Level("EditBathroom", Level.LevelEnum.EditBedroom);
+
+	public static readonly Level EditBedroom = new Level("EditBedroom", Level.LevelEnum.EditBedroom);
+
+	public static readonly Level Wardrobe = new Level("Wardrobe", Level.LevelEnum.Wardrobe);
+
+	public static readonly Level Farm = new Level("Farm", Level.LevelEnum.Farm);
+
 	public static readonly Level[] All = new Level[]
 	{
 		Level.Terrace,
 		Level.Kitchen,
 		Level.Bathroom,
 		Level.Bedroom,
+		Level.EditTerrace,
+		Level.EditKitchen,
+		Level.EditBathroom,
+		Level.EditBedroom,
+		Level.Wardrobe,
+		Level.Farm,
 	};
 
 	public string Name

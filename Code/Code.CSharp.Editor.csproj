@@ -95,19 +95,19 @@
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="NPOI">
-      <HintPath>Assets\Editor\Lib\NPOI.dll</HintPath>
+      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>Assets\Editor\Lib\NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>Assets\Editor\Lib\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\Editor\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXml4Net.dll</HintPath>
     </Reference>
     <Reference Include="System.Data">
-      <HintPath>Assets\Editor\Lib\System.Data.dll</HintPath>
+      <HintPath>Assets\Editor\PathologicalGames\Lib\System.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -122,11 +122,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CreateAnimator.cs" />
+    <Compile Include="Assets\Editor\CreateAssetsBundle.cs" />
     <Compile Include="Assets\Editor\CreateTableAsset.cs" />
     <Compile Include="Assets\Editor\CreateUnityClass.cs" />
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\Common\PGEditorUtils.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\PoolManager\PreRuntimePoolItemInspector.cs" />
+    <Compile Include="Assets\Editor\PathologicalGames\PoolManager\SpawnPoolInspector.cs" />
+    <Compile Include="Assets\Editor\TestEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
+    <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
+    <None Include="Assets\Shaders\PlayerShader.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Underwater_animal_pack\README.txt" />

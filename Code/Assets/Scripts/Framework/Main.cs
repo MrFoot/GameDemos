@@ -27,6 +27,11 @@ public class Main : MainBase {
 		private set;
 	}
 
+    public GameStateManager GameStateManager
+	{
+		get;
+		private set;
+	}
 
 	public SceneTouchController SceneTouchController
 	{
@@ -38,6 +43,11 @@ public class Main : MainBase {
 		get;
 		private set;
 	}
+
+    public UserManager UserManager { 
+        get; 
+        private set; 
+    }
 
 	protected override void Awake() {
 		base.Awake ();
@@ -55,20 +65,33 @@ public class Main : MainBase {
 		this.TableManager = new TableManager ();
 		this.EventBus = new EventBus ();
 		this.AppSession = new AppSession ();
+        this.GameStateManager = new GameStateManager();
 		this.SceneTouchController = new SceneTouchController();
+        this.UserManager = new UserManager();
+        /*
+         * 实例化各个 Controllers
+         * */
 	}
 
 	private void ApplyProperties()
 	{
 		this.AppSession.EventBus = this.EventBus;
+
+        /*
+         * 创建 Controllers
+         * */
 	}
 
 	private void InitObjects()
 	{
-		this.TableManager.Init ();
 		this.AppSession.Init ();
 		this.SceneTouchController.Init();
 		base.MainGameLogic.Init();
+		this.GameStateManager.Init();
+
+		//初始化顺序不能变
+		this.TableManager.Init ();
+        this.UserManager.Init(); 
 	}
 
 	protected override void OnAppStart ()
@@ -79,12 +102,14 @@ public class Main : MainBase {
 	protected override void OnAppResume ()
 	{
 		this.AppSession.OnAppResume ();
+		this.GameStateManager.OnAppResume();
 		base.MainGameLogic.OnAppResume ();
 		this.EventBus.FireEvent (EventId.APP_RESUME);
 	}
 
 	protected override void OnAppPause (bool quitting)
 	{
+		this.GameStateManager.OnAppPause();
 		this.AppSession.OnAppPause ();
 		base.MainGameLogic.OnAppPause();
 		this.EventBus.FireEvent (EventId.APP_PAUSE, quitting);
@@ -92,17 +117,21 @@ public class Main : MainBase {
 
 	protected override void OnBackPress ()
 	{
+		this.GameStateManager.OnBackPress();
 	}
 
 	protected override void Update()
 	{
 		base.Update ();
+		this.GameStateManager.OnUpdate();
 	}
 
 	public void ClearPrefs()
 	{
 		AppSession.ClearPrefs ();
+		GameStateManager.ClearPrefs();
 		MainGameLogic.ClearPrefs();
+		UserManager.ClearPrefs();
 		UserPrefs.Save ();
 	}
 
@@ -110,11 +139,13 @@ public class Main : MainBase {
 	{
 		StateManager.AfterUpdate();
 	}
-
-	public void OnCameraPostRender(Camera camera)
+	
+	protected void OnLevelWasLoaded(int lvl)
 	{
-		if (StateManager.StateChanging)
+		if (!this.IgnoreLevelLoadedNames.Contains(Application.loadedLevelName))
 		{
+			this.GameStateManager.OnLevelWasLoaded(lvl);
 		}
 	}
+
 }

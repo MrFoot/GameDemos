@@ -139,7 +139,9 @@ public class CreateAnimator : Editor {
 			newClips[i].takeName = takeName;
 			newClips[i].name = clipInfo[i].name;
 			newClips[i].loopTime = clipInfo[i].loop;
-
+			newClips [i].keepOriginalPositionY = true;
+			newClips [i].keepOriginalPositionXZ = true;
+			newClips [i].keepOriginalOrientation = true;
 			newClips[i].firstFrame = clipInfo[i].startFrame;
 			newClips[i].lastFrame = clipInfo[i].endFrame;
 		}
@@ -179,9 +181,10 @@ public class CreateAnimator : Editor {
 		if (animator == null) {  
 			animator = go.AddComponent<Animator>();  
 		}  
-		go.AddComponent<BearCharacterAnimationEvents> ();
+        /*   Add Components
 		go.AddComponent<CharacterData> ();
 		go.AddComponent<BearSlotController> ();
+         * */
 
 		animator.applyRootMotion = false;  //使用脚本控制transform，而不是动画
 

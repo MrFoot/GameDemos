@@ -8,6 +8,8 @@ public static class EventId
 	public const int APP_PAUSE = 2;
 
 	public const int NEW_SESSION = 3;
+
+	public const int ADDONS_CHANGE = 4;
 }
 
 

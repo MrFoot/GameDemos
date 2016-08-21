@@ -43,16 +43,34 @@ public class DotDestory : MonoBehaviour {
 	}
 
 	public void Test() {
+        //Main.Instance.BearCharacter.SetRun(true);
+        //Debug.Log(Main.Instance.TableManager.GetTable((int)TableID.ItemTableID).TableDatas[1001100]);
 
+        //Name n = new Name();
+        //n.MyName = "XCX";
+        //n.MyTime = DateTime.Now;
+        //n.Hi.Text = "Hi";
+        //NameStruct nHi = n.Hi;
+        //nHi.Text = "new Hi";
+
+        //UserPrefs.SetXml<Name>("tt", n);
 
 	}
 
 	public void GoFarm() {
+        gameObject.SetActive(false);
 
+        SceneManager.LoadScene("Farm");
+
+
+        //Name nn = UserPrefs.GetXml<Name>("tt",null);
+        //Debug.Log("MyName = " + nn.MyName);
+        //Debug.Log("MyTime = " + nn.MyTime);
+        //Debug.Log("MyStruct = " + nn.Hi.Text);
         
 	}
 
 	public void GoDress() {
-
+		Main.Instance.GameStateManager.FireAction (GameAction.OpenWardrobe);
 	}
 }

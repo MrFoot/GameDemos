@@ -186,6 +186,37 @@ namespace Soulgame.Util
 		{
 			return StringUtils.CollectionToDelimitedString<T>(collection, ",");
 		}
+
+		public static string CombineStringWithCount(string value, int count)
+		{
+			Assert.IsTrue(count >= 1, "count must be >= 1", new object[0]);
+			Assert.IsTrue(value.IndexOf('=') == -1, "value must not contain '='", new object[0]);
+			if (count == 1)
+			{
+				return value;
+			}
+			return string.Format("{0}={1}", value, StringUtils.ToUniString(count));
+		}
+
+		public static bool TryParsingCombinedStringWithCount(string combined, out string value, out int count)
+		{
+			if (string.IsNullOrEmpty(combined))
+			{
+				value = combined;
+				count = 0;
+				return false;
+			}
+			string[] array = combined.Split(new char[]{
+				'='
+			});
+			value = array[0];
+			if (array.Length == 1)
+			{
+				count = 1;
+				return true;
+			}
+			return int.TryParse(array[1], out count);
+		}
 	}
 }
 

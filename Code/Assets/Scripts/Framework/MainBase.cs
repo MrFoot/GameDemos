@@ -9,10 +9,10 @@ public abstract class MainBase : MonoBehaviour {
 
 	private bool Started;
 
-	public MainThread MainThread {
-		get;
-		private set;
-	}
+    //public MainThread MainThread {
+    //    get;
+    //    private set;
+    //}
 
 	public MainGameLogic MainGameLogic
 	{
@@ -22,7 +22,7 @@ public abstract class MainBase : MonoBehaviour {
 
 	protected virtual void Awake() {
 		DontDestroyOnLoad (this);
-		this.MainThread = gameObject.AddComponent<MainThread> ();
+		//this.MainThread = gameObject.AddComponent<MainThread> ();
 		this.MainGameLogic = base.gameObject.AddComponent<MainGameLogic>();
 		AssetManager.Initialize();
 		Application.targetFrameRate = 60;

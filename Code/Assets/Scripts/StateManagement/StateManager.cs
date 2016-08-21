@@ -19,6 +19,7 @@ namespace Soulgame.StateManagement
 
 		/// <summary>
 		/// 状态正在转换，涉及到场景加载， AfterUpdate后才会为false，如果涉及到场景加载，加载完成后才会为false
+		/// 游戏的主状态正在转换，这个时候不能做其它的状态转换
 		/// </summary>
 		/// <value><c>true</c> if state changing; otherwise, <c>false</c>.</value>
 		public static bool StateChanging
@@ -36,7 +37,10 @@ namespace Soulgame.StateManagement
 			get;
 			set;
 		}
-		
+
+		/// <summary>
+		/// update后游戏主状态才算完成
+		/// </summary>
 		public static void AfterUpdate()
 		{
 			StateManager.ActionTriggeredInUpdate = false;
@@ -157,7 +161,11 @@ namespace Soulgame.StateManagement
 			get;
 			protected set;
 		}
-		
+
+		/// <summary>
+		/// 强制更新状态
+		/// </summary>
+		/// <value><c>true</c> if force state reload; otherwise, <c>false</c>.</value>
 		public bool ForceStateReload
 		{
 			get;
@@ -184,14 +192,19 @@ namespace Soulgame.StateManagement
 				this.CurrentState.OnAppPause();
 			}
 		}
-		
+
+		/// <summary>
+		/// 执行某个Action
+		/// </summary>
+		/// <returns><c>true</c>, if action was fired, <c>false</c> otherwise.</returns>
+		/// <param name="gameAction">Game action.</param>
 		public bool FireAction(A gameAction)
 		{
 			return this.FireAction(gameAction, null);
 		}
 
 		/// <summary>
-		/// 在状态中执行某个动作
+		/// 在状态中执行某个动作, 带参数
 		/// </summary>
 		/// <returns><c>true</c>, if action was fired, <c>false</c> otherwise.</returns>
 		/// <param name="gameAction">Game action.</param>
@@ -220,7 +233,12 @@ namespace Soulgame.StateManagement
 			StateManager.ActionTriggeredInUpdate = true;
 			return true;
 		}
-		
+
+		/// <summary>
+		/// 执行当前状态的Action
+		/// </summary>
+		/// <param name="gameAction">Game action.</param>
+		/// <param name="data">Data.</param>
 		protected virtual void HandleFireAction(A gameAction, object data)
 		{
 			this.CurrentState.OnAction(gameAction, data);
@@ -228,6 +246,7 @@ namespace Soulgame.StateManagement
 
 		/// <summary>
 		/// 是否可以中断状态转换，返回true表示不可以
+		/// 如果正在转换，并且新状态为空，那么可以转换
 		/// </summary>
 		/// <returns><c>true</c>, if state change was blocked, <c>false</c> otherwise.</returns>
 		/// <param name="newState">New state.</param>
@@ -242,6 +261,7 @@ namespace Soulgame.StateManagement
 			{
 				return false;
 			}
+			//进入空状态，如果是主游戏状态，那么会退出游戏
 			if (newState == null)
 			{
 				if (this.CurrentState != null)
@@ -273,7 +293,7 @@ namespace Soulgame.StateManagement
 		
 		protected virtual void OnStateChanged()
 		{
-			StateManager.StateChangedInternal = false;
+			StateManager.StateChangedInternal = false; 
 			if (this.PreviousState != null)
 			{
 				this.OnStateExitEvent(this.PreviousState, this.NextState, this.Data);
@@ -293,20 +313,20 @@ namespace Soulgame.StateManagement
 		
 		public virtual void OnUpdate()
 		{
+			if (this.CurrentState == null)
+			{
+				return;
+			}
+			if (StateManager.StateChanging)
+			{
+				return;
+			}
+			this.CurrentState.OnUpdate ();
 		}
 		
 		protected void OnStatePreEnterEvent(S callState, S state, object data)
 		{
-			S s = callState.OnPreEnter(state, data);
-			//如果下一个状态和preenter执行完成后不一样，用下一个状态执行preEnter
-			while (s != callState)
-			{
-				this.PreviousState = callState;
-				this.NextState = s;
-				callState = this.NextState;
-				s = callState.OnPreEnter(state, data);
-				Assert.IsTrue(s != null, "Exiting the app from state rerouting Not supported yet! / Actually no need for this and this is implemented to aviod accidental closes!", new object[0]);
-			}
+			callState.OnPreEnter(state, data);
 			if (this.OnStatePreEnter != null)
 			{
 				this.OnStatePreEnter(state, data);

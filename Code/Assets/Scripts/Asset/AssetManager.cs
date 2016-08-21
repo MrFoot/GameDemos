@@ -116,14 +116,18 @@ namespace Soulgame.Asset
 		
 		private static string TAG = "AssetManager";
 		
+
+        //所有包（包括异步加载的）
 		private static List<AssetManager.Bundle> Bundles = new List<AssetManager.Bundle>();
 		
 		private static List<AssetManager.Bundle> AsyncBundles = new List<AssetManager.Bundle>();
 
 		private static Dictionary<string, AssetManager.Asset> Assets = new Dictionary<string, AssetManager.Asset>();
 		
+        //等待异步加载列表
 		private static List<AssetManager.Asset> AsyncQueueAssets = new List<AssetManager.Asset>();
 		
+        //异步加载完成列表
 		private static List<AssetManager.AsyncActiveItem> AsyncActiveItems = new List<AssetManager.AsyncActiveItem>(1);
 
 		public static bool DebugInfo = false;
@@ -153,6 +157,8 @@ namespace Soulgame.Asset
 		public static string GetAssetNameFromPath(string path)
 		{
 			return path.Remove(path.LastIndexOf(".")).Replace("Assets/Resources/", string.Empty);
+            //string s1 = path.Remove(0,path.LastIndexOf("/")+1);
+            //return s1.Remove(s1.LastIndexOf("."));
 		}
 		
 		public static string GetStreamingAssetPath(string path)
@@ -162,7 +168,7 @@ namespace Soulgame.Asset
 		
 		public static string GetStreamingAssetWWWPath(string path)
 		{
-			return AssetManager.GetStreamingAssetPath(path);
+            return "file://" + AssetManager.GetStreamingAssetPath(path);
 		}
 		
 		public static string GetBundleAssetName(string name)
@@ -175,6 +181,7 @@ namespace Soulgame.Asset
 			Caching.CleanCache();
 		}
 
+        // Speed : LoadAsyncBundle < LoadBundle
 		public static AssetManager.Bundle LoadAsyncBundle(string name, AssetManager.OnBundleLoaded bundleLoaded)
 		{
 			int num = AssetManager.Bundles.FindIndex((AssetManager.Bundle b) => b.Name == name);
@@ -256,7 +263,7 @@ namespace Soulgame.Asset
 			AssetManager.Asset asset = AssetManager.FindAsset(name);
 			if (asset != null)
 			{
-				if (asset.State == AssetManager.State.Loaded)
+				if (asset.State == AssetManager.State.Loaded)  //已经正确加载，重定向回调
 				{
 					asset.ClearEvents();
 					asset.AssetLoaded += assetLoaded;
@@ -273,7 +280,7 @@ namespace Soulgame.Asset
 			asset.Name = name;
 			asset.Type = type;
 			asset.Bundle = bundle;
-			asset.AssetLoaded += assetLoaded;
+			asset.AssetLoaded += assetLoaded;  //如果之前加载过这个资源并且委托没有删除则会继续通知哦...
 			return OnLoadAsset(asset);
 		}
 
@@ -317,6 +324,7 @@ namespace Soulgame.Asset
 			return asset;
 		}
 
+        // Speed : LoadAssetFromResources > LoadAsyncAssetFromResources
 		public static AssetManager.Asset LoadAssetFromResources(string name, Type type, AssetManager.OnAssetLoaded assetLoaded)
 		{
 			return AssetManager.LoadAsset(null, name, type, assetLoaded, new AssetManager.LoadAssetDelegate(AssetManager.OnLoadAssetFromResources));
@@ -331,7 +339,8 @@ namespace Soulgame.Asset
 		{
 			return AssetManager.LoadAsset(null, name, type, assetLoaded, new AssetManager.LoadAssetDelegate(AssetManager.OnLoadAssetFromEditorResources));
 		}
-		
+
+        //Speed : LoadAsyncAssetFromBundle >>> LoadAssetFromBundle 
 		public static AssetManager.Asset LoadAssetFromBundle(AssetManager.Bundle bundle, string name, Type type, AssetManager.OnAssetLoaded assetLoaded)
 		{
 			return AssetManager.LoadAsset(bundle, name, type, assetLoaded, new AssetManager.LoadAssetDelegate(AssetManager.OnLoadAssetFromBundle));
@@ -489,13 +498,10 @@ namespace Soulgame.Asset
 					bool flag3 = false;
 					if (asset.Type == null)
 					{
-						if (asset.Type == null)
+						asyncActiveItem2.WWW = new WWW(asset.Name);
+						if (asyncActiveItem2.WWW != null)
 						{
-							asyncActiveItem2.WWW = new WWW(asset.Name);
-							if (asyncActiveItem2.WWW != null)
-							{
-								flag3 = true;
-							}
+							flag3 = true;
 						}
 					}
 					else if (asset.Bundle != null)
@@ -552,6 +558,7 @@ namespace Soulgame.Asset
 				});
 				GUI.color = Color.white;
 				GUILayout.Label(string.Format("ASSET DEBUG\nActiveAssets:{0}\nAsyncActiveItems:{1}\nAsyncQueueAssets:{2}\n", AssetManager.ActiveAssetsCount, AssetManager.AsyncActiveItems.Count, AssetManager.AsyncQueueAssets.Count), new GUILayoutOption[0]);
+                GUILayout.Label(string.Format("Bundles:{0}\nAsyncBundles:{1}\n", AssetManager.Bundles.Count, AssetManager.AsyncBundles.Count), new GUILayoutOption[0]);
 				int num2 = 0;
 				GUI.color = Color.yellow;
 				foreach (KeyValuePair<string, AssetManager.Asset> current in AssetManager.Assets)

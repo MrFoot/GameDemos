@@ -2,12 +2,13 @@
 using System.Collections;
 using Soulgame.Util;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StartUpController : MonoBehaviour {
 
 	private const string Tag = "StartUpController";
 
-	private const long RequiredFreeSpaceForExtract = 104857600L; //100m
+	private const long RequiredFreeSpaceForExtract = 104857600L; //100M
 
 	private bool AssetsDownloaded;
 
@@ -18,22 +19,19 @@ public class StartUpController : MonoBehaviour {
 	private bool StartedMainLoad = false;
 
 	private bool MainLoading;
-	
-	private bool MainSceneGuiLoading;
-	
-	private bool RoomLoading;
 
 	private AsyncOperation AsyncMain;
+
+    private int DisplayProgress;
 	
-	private AsyncOperation AsyncMainSceneGui;
-	
-	private AsyncOperation AsyncRoom;
+    //UI
+    public Text Progress;
 
 	private ResourceManager.DecompressInfo DecompressInfo;
 
 	void Awake() {
 		UnityLogHandler.RegisterMe ();
-		DontDestroyOnLoad (this);
+		DontDestroyOnLoad (this.gameObject);
 		DoDownloadingAssets ();
 	}
 
@@ -47,7 +45,8 @@ public class StartUpController : MonoBehaviour {
 		this.CompressionFailMessageShown = false;
 		this.DecompressInfo = new ResourceManager.DecompressInfo ();
 		StartCoroutine(ResourceManager.ExtractArchive(this.DecompressInfo, StartUpController.RequiredFreeSpaceForExtract));
-		if (!this.DecompressInfo.Done) {
+		
+        if (!this.DecompressInfo.Done) {
 			this.DidStartExtracting = true;
 			//开始解压资源,显示相关内容
 		}
@@ -69,9 +68,9 @@ public class StartUpController : MonoBehaviour {
 					//解压完成
 				}
 				this.StartedMainLoad = true;
-				StartCoroutine(LoadMainAndRoom());
+				StartCoroutine(LoadMain());
 			}
-			UpdateProgressBar();
+			UpdateLoadProgress();
 		} else if (this.DecompressInfo.FailedDecompressing) {
 			if (!this.CompressionFailMessageShown) {
 				this.CompressionFailMessageShown = true;
@@ -79,36 +78,32 @@ public class StartUpController : MonoBehaviour {
 			}
 		} else if (this.AssetsDownloaded) {
 			//根据this.DecompressInfo.Progress;显示进度条，一般情况不显示进度
+            UpdateDecompress();
 		}
 	}
 
-	IEnumerator LoadMainAndRoom() {
+	IEnumerator LoadMain() {
 		SetSuggestion ();
 		yield return null;
 
 		ResourceManager.UnloadUnusedResources ();
 		yield return null;
 
-		this.AsyncMain = SceneManager.LoadSceneAsync("Main");
-		this.MainLoading = true;
-		yield return this.AsyncMain;
+        this.AsyncMain = SceneManager.LoadSceneAsync("Main");
+        this.AsyncMain.allowSceneActivation = false;
+        this.MainLoading = true;
+        yield return this.AsyncMain;
 
-        this.AsyncMainSceneGui = SceneManager.LoadSceneAsync("MainGui");
-		this.MainSceneGuiLoading = true;
-		yield return this.AsyncMainSceneGui;
-
-		//加载房间
-        //this.AsyncRoom = SceneManager.LoadSceneAsync(MtaGameStateManager.Instance.EntryState.LevelName);
-		this.RoomLoading = true;
-		yield return this.AsyncRoom;
+        this.MainLoading = false;
+        Debug.Log("+++++++++++++ AsyncMain.Done");
 
 		//可以弹礼包之类的
 		yield return null;
 
-		//关闭页面
-		//MtaGameStateManager.BlockUpdatesOnStart = false;
+		//关闭Loading页面
 		ResourceManager.UnloadUnusedResources ();
 		Destroy (this.gameObject);
+        Debug.Log("Destoryed");
 	}
 
 	/// <summary>
@@ -118,24 +113,40 @@ public class StartUpController : MonoBehaviour {
 
 	}
 
-	private void UpdateProgressBar()
+    /// <summary>
+    /// 更新加载进度
+    /// </summary>
+	private void UpdateLoadProgress()
 	{
-		float num = 0f;
-		float num2 = 0f;
-		float num3 = 0f;
-		if (this.MainLoading)
+        if (this.MainLoading)
 		{
-			num = ((this.AsyncMain != null) ? this.AsyncMain.progress : 1f);
+            float progress = ((this.AsyncMain != null) ? this.AsyncMain.progress : 1f);
+
+            if (progress < 0.89)
+            {
+                DisplayProgress = (int)(progress * 100);
+            }
+            else
+            {
+                DisplayProgress = Mathf.Min(100, ++DisplayProgress);
+
+                if (DisplayProgress == 100 && !this.AsyncMain.allowSceneActivation)
+                {
+                    this.AsyncMain.allowSceneActivation = true;
+                }
+            }
+
+            Progress.text = "Progress : " + DisplayProgress + "%";
 		}
-		if (this.MainSceneGuiLoading)
-		{
-			num2 = ((this.AsyncMainSceneGui != null) ? this.AsyncMainSceneGui.progress : 1f);
-		}
-		if (this.RoomLoading)
-		{
-			num3 = ((this.AsyncRoom != null) ? this.AsyncRoom.progress : 1f);
-		}
-		float splashScreenProgress = num * 0.33f + num3 * 0.33f + num2 * 0.33f;
-		//更新进度条
+		    
 	}
+
+    /// <summary>
+    /// 更新解压进度
+    /// </summary>
+    private void UpdateDecompress() 
+    {
+        if (!this.DecompressInfo.Done)
+            Progress.text = "Decompressing : " + (int)(this.DecompressInfo.Progress * 100) + "%";
+    }
 }

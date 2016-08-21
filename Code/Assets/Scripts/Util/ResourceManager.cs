@@ -9,6 +9,8 @@ namespace Soulgame.Util
 {
 	public static class ResourceManager
 	{
+        private static string Tag = "ResourceManager";
+
 		public class DecompressInfo
 		{
 			public float Progress;
@@ -19,8 +21,6 @@ namespace Soulgame.Util
 		}
 		
 		private static AsyncOperation UnloadingResources;
-		
-		private static string Tag = "ResourceManager";
 		
 		public static void UnloadUnusedResources()
 		{
@@ -77,13 +77,26 @@ namespace Soulgame.Util
 		public static IEnumerator ExtractArchive(ResourceManager.DecompressInfo decompressInfo, long requiredFreeSpace)
 		{
 			yield return null;
-			decompressInfo.Progress = 1f;
+
+            decompressInfo.Progress = 0;
+
+            while (decompressInfo.Progress < 1.0f)
+            {
+                decompressInfo.Progress += 0.01f;
+                yield return null;
+            }
+			
 			decompressInfo.Done = true;
 		}
 		
 		public static ResourceRequest LoadAsync(string id, Type type)
 		{
-			throw new NotImplementedException();
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+            Debug.Log("LoadAsync : " + id);
+            return Resources.LoadAsync(id, type);
 		}
 	}
 }
