@@ -5,7 +5,7 @@ public class TerraceSceneController : BaseSceneController
 {
 	public TerraceSceneController ()
 	{
-		this.Level = Level.Terrace;
+		this.Level = Level.Story;
 	}
 }
 

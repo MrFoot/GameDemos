@@ -5,26 +5,26 @@ public class Level
 {
 	public enum LevelEnum
 	{
-		Terrace,
-		Kitchen,
-		Bathroom,
-		Bedroom,
+        Aquarium,   //水族馆
+        Story,      //剧情
+        Fisheries,  //渔场
+		Shop,    //商店
 	}
 
-	public static readonly Level Terrace = new Level("Terrace", Level.LevelEnum.Terrace);
-	
-	public static readonly Level Kitchen = new Level("Kitchen", Level.LevelEnum.Kitchen);
-	
-	public static readonly Level Bathroom = new Level("Bathroom", Level.LevelEnum.Bathroom);
-	
-	public static readonly Level Bedroom = new Level("Bedroom", Level.LevelEnum.Bedroom);
+    public static readonly Level Story = new Level("Story", Level.LevelEnum.Story);
+
+    public static readonly Level Aquarium = new Level("Aquarium", Level.LevelEnum.Aquarium);
+
+    public static readonly Level Fisheries = new Level("Fisheries", Level.LevelEnum.Fisheries);
+
+    public static readonly Level Shop = new Level("Shop", Level.LevelEnum.Shop);
 
 	public static readonly Level[] All = new Level[]
 	{
-		Level.Terrace,
-		Level.Kitchen,
-		Level.Bathroom,
-		Level.Bedroom,
+		Level.Story,
+		Level.Aquarium,
+		Level.Fisheries,
+		Level.Shop,
 	};
 
 	public string Name

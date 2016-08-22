@@ -89,7 +89,7 @@ public class StartUpController : MonoBehaviour {
 		ResourceManager.UnloadUnusedResources ();
 		yield return null;
 
-        this.AsyncMain = SceneManager.LoadSceneAsync("Main");
+        this.AsyncMain = SceneManager.LoadSceneAsync("Aquarium");
         this.AsyncMain.allowSceneActivation = false;
         this.MainLoading = true;
         yield return this.AsyncMain;

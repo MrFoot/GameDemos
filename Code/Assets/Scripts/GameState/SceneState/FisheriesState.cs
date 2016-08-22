@@ -1,8 +1,8 @@
 using System;
 
-public class BathroomState : BaseGameSceneState
+public class FisheriesState : BaseGameSceneState
 {
-	public BathroomState(GameSceneStateManager stateManager) : base(stateManager)
+	public FisheriesState(GameSceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new BathroomSceneController ();
 	}
@@ -11,7 +11,7 @@ public class BathroomState : BaseGameSceneState
 	{
 		get
 		{
-			return Level.Bathroom;
+			return Level.Fisheries;
 		}
 	}
 

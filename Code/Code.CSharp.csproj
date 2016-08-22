@@ -94,12 +94,12 @@
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\Base\BaseGameSceneState.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\BathroomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\BedroomState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\FisheriesState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\ShopState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameAction.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameSceneStateManager.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\KitchenState.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\TerraceState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\StoryState.cs" />
     <Compile Include="Assets\Scripts\Input\CameraGyroLookAt.cs" />
     <Compile Include="Assets\Scripts\Input\SceneTouchController.cs" />
     <Compile Include="Assets\Scripts\Input\TouchRemapper.cs" />

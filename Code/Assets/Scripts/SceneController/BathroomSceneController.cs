@@ -5,7 +5,7 @@ public class BathroomSceneController : BaseSceneController
 {
 	public BathroomSceneController ()
 	{
-		this.Level = Level.Bathroom;
+		this.Level = Level.Fisheries;
 	}
 }
 

@@ -5,7 +5,7 @@ public class KitchenSceneController : BaseSceneController
 {
 	public KitchenSceneController ()
 	{
-		this.Level = Level.Kitchen;
+		this.Level = Level.Aquarium;
 	}
 }
 

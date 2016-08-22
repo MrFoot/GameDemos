@@ -1,8 +1,8 @@
 using System;
 
-public class TerraceState : BaseGameSceneState
+public class StoryState : BaseGameSceneState
 {
-	public TerraceState(GameSceneStateManager stateManager) : base(stateManager)
+	public StoryState(GameSceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new TerraceSceneController ();
 	}
@@ -11,7 +11,7 @@ public class TerraceState : BaseGameSceneState
 	{
 		get
 		{
-			return Level.Terrace;
+			return Level.Story;
 		}
 	}
 

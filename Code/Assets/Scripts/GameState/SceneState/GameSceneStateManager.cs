@@ -35,25 +35,25 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 	public bool IgnoreLevelLoad;
 
 	#region State
-	public TerraceState TerraceState
+	public StoryState StoryState
 	{
 		get;
 		private set;
 	}
 
-	public KitchenState KitchenState
+	public AquariumState AquariumState
 	{
 		get;
 		private set;
 	}
 
-	public BathroomState BathroomState
+	public FisheriesState FisheriesState
 	{
 		get;
 		private set;
 	}
 
-	public BedroomState BedroomState
+	public ShopState ShopState
 	{
 		get;
 		private set;
@@ -83,10 +83,10 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 
 	public GameSceneStateManager()
 	{
-		this.TerraceState = new TerraceState(this);
-		this.KitchenState = new KitchenState(this);
-		this.BathroomState = new BathroomState(this);
-		this.BedroomState = new BedroomState(this);
+		this.StoryState = new StoryState(this);
+		this.AquariumState = new AquariumState(this);
+		this.FisheriesState = new FisheriesState(this);
+		this.ShopState = new ShopState(this);
 	}
 	
 	public void Init()
@@ -109,17 +109,17 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 		Level.LevelEnum @int = (Level.LevelEnum)UserPrefs.GetInt(GameSceneStateManager.LastStateKey, 0);
 		switch (@int)
 		{
-		case Level.LevelEnum.Terrace:
-			this.PreviousSessionRoomState = this.TerraceState;
+		case Level.LevelEnum.Story:
+			this.PreviousSessionRoomState = this.StoryState;
 			break;
-		case Level.LevelEnum.Kitchen:
-			this.PreviousSessionRoomState = this.KitchenState;
+        case Level.LevelEnum.Aquarium:
+			this.PreviousSessionRoomState = this.AquariumState;
 			break;
-		case Level.LevelEnum.Bathroom:
-			this.PreviousSessionRoomState = this.BathroomState;
+        case Level.LevelEnum.Fisheries:
+			this.PreviousSessionRoomState = this.FisheriesState;
 			break;
-		case Level.LevelEnum.Bedroom:
-			this.PreviousSessionRoomState = this.BedroomState;
+		case Level.LevelEnum.Shop:
+			this.PreviousSessionRoomState = this.ShopState;
 			break;
 		default:
 			throw new InvalidOperationException("Unknown lastLoadedLevel: " + @int);
@@ -127,7 +127,7 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 		baseGameState = (baseGameState ?? this.PreviousSessionRoomState);
 		if (!Main.Instance.MainGameLogic.IsBedroomLightOn)
 		{
-			baseGameState = this.BedroomState;
+			baseGameState = this.ShopState;
 		}
 		object second = this;
 		return new Pair<BaseGameSceneState, object>(baseGameState, second);
@@ -146,21 +146,21 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 	protected override void OnStateChanged()
 	{
 		base.OnStateChanged();
-		if (base.CurrentState == this.KitchenState)
+		if (base.CurrentState == this.AquariumState)
 		{
-			this.LastSavedState = Level.LevelEnum.Kitchen;
+            this.LastSavedState = Level.LevelEnum.Aquarium;
 		}
-		else if (base.CurrentState == this.BathroomState)
+		else if (base.CurrentState == this.FisheriesState)
 		{
-			this.LastSavedState = Level.LevelEnum.Bathroom;
+            this.LastSavedState = Level.LevelEnum.Fisheries;
 		}
-		else if (base.CurrentState == this.BedroomState)
+		else if (base.CurrentState == this.ShopState)
 		{
-			this.LastSavedState = Level.LevelEnum.Bedroom;
+			this.LastSavedState = Level.LevelEnum.Shop;
 		}
-		else if (base.CurrentState == this.TerraceState)
+		else if (base.CurrentState == this.StoryState)
 		{
-			this.LastSavedState = Level.LevelEnum.Terrace;
+			this.LastSavedState = Level.LevelEnum.Story;
 		}
 	}
 	

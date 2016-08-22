@@ -100,11 +100,11 @@
     <Reference Include="NPOI.OOXML">
       <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OOXML.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
     <Reference Include="NPOI.OpenXml4Net">
       <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="System.Data">
       <HintPath>Assets\Editor\PathologicalGames\Lib\System.Data.dll</HintPath>

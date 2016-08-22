@@ -5,7 +5,7 @@ public class BedroomSceneController : BaseSceneController
 {
 	public BedroomSceneController ()
 	{
-		this.Level = Level.Bedroom;
+		this.Level = Level.Shop;
 	}
 }
 

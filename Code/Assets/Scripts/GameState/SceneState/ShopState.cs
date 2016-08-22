@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BedroomState : BaseGameSceneState
+public class ShopState : BaseGameSceneState
 {
 
-	public BedroomState(GameSceneStateManager stateManager) : base(stateManager)
+	public ShopState(GameSceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new BedroomSceneController ();
 	}
@@ -13,7 +13,7 @@ public class BedroomState : BaseGameSceneState
 	{
 		get
 		{
-			return Level.Bedroom;
+			return Level.Shop;
 		}
 	}
 
