@@ -11,6 +11,7 @@ public abstract class BaseSceneController : MonoBehaviour{
 	private bool Paused;
 
 	public virtual void OnEnter() {
+        //保证一个场景只有一个有效的触碰检测
 		Main.Instance.SceneTouchController.UnregisterTouchLayer (-1);
 		Main.Instance.SceneTouchController.RegisterTouchLayer (-1, new System.Func<TouchRemapper.TouchData, bool> (this.HandleTouch));
 	}
