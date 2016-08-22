@@ -1,9 +1,9 @@
-
 using System;
 using System.Collections.Generic;
 using Soulgame.Util;
 using UnityEngine;
 using Soulgame.StateManagement;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : StateManager<BaseGameState, GameAction>
 {
@@ -257,7 +257,7 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 		StateManager.StateChangedInternal = true;
 		if (this.CanLoadLevel())
 		{
-			Application.LoadLevel(this.LoadLevelName());
+            SceneManager.LoadScene(this.LoadLevelName());
 		}
 		else
 		{

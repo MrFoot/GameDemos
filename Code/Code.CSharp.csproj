@@ -83,17 +83,16 @@
     <Compile Include="Assets\Scripts\Asset\AssetManager.cs" />
     <Compile Include="Assets\Scripts\AssetDebug.cs" />
     <Compile Include="Assets\Scripts\CubeAction.cs" />
-    <Compile Include="Assets\Scripts\DotDestory.cs" />
     <Compile Include="Assets\Scripts\Event\EventBus.cs" />
     <Compile Include="Assets\Scripts\Event\EventListenerList.cs" />
     <Compile Include="Assets\Scripts\Framework\EventId.cs" />
+    <Compile Include="Assets\Scripts\Framework\GameMain.cs" />
     <Compile Include="Assets\Scripts\Framework\Level.cs" />
     <Compile Include="Assets\Scripts\Framework\Main.cs" />
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
     <Compile Include="Assets\Scripts\Framework\Room.cs" />
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
-    <Compile Include="Assets\Scripts\GameMain.cs" />
     <Compile Include="Assets\Scripts\GameState\BaseGameState.cs" />
     <Compile Include="Assets\Scripts\GameState\BathroomState.cs" />
     <Compile Include="Assets\Scripts\GameState\BedroomState.cs" />
@@ -167,6 +166,7 @@
     <Compile Include="Assets\Scripts\Util\BuildConfig.cs" />
     <Compile Include="Assets\Scripts\Util\CollectionUtils.cs" />
     <Compile Include="Assets\Scripts\Util\CryptoUtils.cs" />
+    <Compile Include="Assets\Scripts\Util\DotDestory.cs" />
     <Compile Include="Assets\Scripts\Util\EncryptUtils.cs" />
     <Compile Include="Assets\Scripts\Util\FileLogger.cs" />
     <Compile Include="Assets\Scripts\Util\GameFile.cs" />

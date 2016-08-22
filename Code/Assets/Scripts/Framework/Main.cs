@@ -4,6 +4,8 @@ using Soulgame.Event;
 using Soulgame.Util;
 using System.Collections.Generic;
 using Soulgame.StateManagement;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class Main : MainBase {
 
@@ -58,6 +60,8 @@ public class Main : MainBase {
 		this.InstantiateObjects();
 		this.ApplyProperties();
 		this.InitObjects();
+
+        
 	}
 
 	private void InstantiateObjects()
@@ -77,6 +81,7 @@ public class Main : MainBase {
 	{
 		this.AppSession.EventBus = this.EventBus;
 
+        SceneManager.sceneLoaded += OnLevelLoaded;
         /*
          * 创建 Controllers
          * */
@@ -139,13 +144,14 @@ public class Main : MainBase {
 	{
 		StateManager.AfterUpdate();
 	}
-	
-	protected void OnLevelWasLoaded(int lvl)
-	{
-		if (!this.IgnoreLevelLoadedNames.Contains(Application.loadedLevelName))
-		{
-			this.GameStateManager.OnLevelWasLoaded(lvl);
-		}
-	}
+
+    protected void  OnLevelLoaded(Scene s, LoadSceneMode m) {
+        Debug.Log("Scene Name = " + s.name + " | " + "LoadSceneMode = " + m);
+
+        if (!this.IgnoreLevelLoadedNames.Contains(s.name))
+        {
+            this.GameStateManager.OnLevelWasLoaded(s.buildIndex);
+        }
+    }
 
 }

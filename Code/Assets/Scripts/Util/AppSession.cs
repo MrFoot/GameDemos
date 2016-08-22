@@ -91,6 +91,7 @@ namespace Soulgame.Util
 		
 		public virtual void OnAppResume()
 		{
+            GameLog.Debug("OnAppResume");
 			DateTime utcNow = DateTime.UtcNow;
 			if (this.PauseTime > utcNow)
 			{
@@ -105,6 +106,7 @@ namespace Soulgame.Util
 		
 		public virtual void OnAppPause()
 		{
+            GameLog.Debug("OnAppPause");
 			UserPrefs.SetDateTime("AppSession.StartTime", this.StartTime);
 			this.PauseTime = DateTime.UtcNow;
 			UserPrefs.SetDateTime("AppSession.PauseTime", this.PauseTime);

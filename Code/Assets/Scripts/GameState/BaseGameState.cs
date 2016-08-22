@@ -12,6 +12,7 @@ public abstract class BaseGameState : StateManager<BaseGameState, GameAction>.St
 		}
 	}
 	
+    //该状态属于哪个场景
 	public abstract Level LevelEnum
 	{
 		get;

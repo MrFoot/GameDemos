@@ -156,20 +156,20 @@ public class TouchRemapper : MonoBehaviour {
 
 	private bool HandleTouch(Touch touch) {
 		switch (touch.phase) {
-		case TouchPhase.Began:
-			CurrentTouchData.SetData (touch.position, touch.fingerId, TouchPhase.Began, ScenePriority, 0f);
-			return true;
-		case TouchPhase.Moved:
-		case TouchPhase.Stationary:
-			CurrentTouchData.Hold (touch.position, Time.deltaTime);
-			return true;
-		case TouchPhase.Canceled:
-			FingerId = -1;
-			return false;
-		case TouchPhase.Ended:
-			CurrentTouchData.Up (touch.position, Time.deltaTime);
-			FingerId = -1;
-			return true;
+		    case TouchPhase.Began:
+			    CurrentTouchData.SetData (touch.position, touch.fingerId, TouchPhase.Began, ScenePriority, 0f);
+			    return true;
+		    case TouchPhase.Moved:
+		    case TouchPhase.Stationary:
+			    CurrentTouchData.Hold (touch.position, Time.deltaTime);
+			    return true;
+		    case TouchPhase.Canceled:
+			    FingerId = -1;
+			    return false;
+		    case TouchPhase.Ended:
+			    CurrentTouchData.Up (touch.position, Time.deltaTime);
+			    FingerId = -1;
+			    return true;
 		}
 		return false;
 	}
