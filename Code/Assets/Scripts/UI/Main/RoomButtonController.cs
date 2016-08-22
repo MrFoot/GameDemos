@@ -90,10 +90,6 @@ public abstract class RoomButtonController : GameActionButtonController
 		//this.ProgressBarBackground = this.ProgressBar.backgroundWidget;
 	}
 
-	protected abstract Room Room
-	{
-		get;
-	}
 
 	public void ShowUpgradingArrow(bool isUpgrading)
 	{

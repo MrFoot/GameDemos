@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-public class KitchenSceneController : BearSceneController
+public class KitchenSceneController : BaseSceneController
 {
 	public KitchenSceneController ()
 	{

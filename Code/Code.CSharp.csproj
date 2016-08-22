@@ -17,7 +17,8 @@
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -90,24 +91,15 @@
     <Compile Include="Assets\Scripts\Framework\Level.cs" />
     <Compile Include="Assets\Scripts\Framework\Main.cs" />
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
-    <Compile Include="Assets\Scripts\Framework\Room.cs" />
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
-    <Compile Include="Assets\Scripts\GameState\BaseGameState.cs" />
-    <Compile Include="Assets\Scripts\GameState\BathroomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\BedroomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\CommonEditRoomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\CommonRoomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\EditBathroomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\EditBedroomState.cs" />
-    <Compile Include="Assets\Scripts\GameState\EditKitchenState.cs" />
-    <Compile Include="Assets\Scripts\GameState\EditTerraceState.cs" />
-    <Compile Include="Assets\Scripts\GameState\FarmState.cs" />
-    <Compile Include="Assets\Scripts\GameState\GameAction.cs" />
-    <Compile Include="Assets\Scripts\GameState\GameStateManager.cs" />
-    <Compile Include="Assets\Scripts\GameState\KitchenState.cs" />
-    <Compile Include="Assets\Scripts\GameState\TerraceState.cs" />
-    <Compile Include="Assets\Scripts\GameState\WardrobeState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\Base\BaseGameSceneState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\BathroomState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\BedroomState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\GameAction.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\GameSceneStateManager.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\KitchenState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\TerraceState.cs" />
     <Compile Include="Assets\Scripts\Input\CameraGyroLookAt.cs" />
     <Compile Include="Assets\Scripts\Input\SceneTouchController.cs" />
     <Compile Include="Assets\Scripts\Input\TouchRemapper.cs" />
@@ -115,8 +107,8 @@
     <Compile Include="Assets\Scripts\Network\HttpLite.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\PlayerService.cs" />
+    <Compile Include="Assets\Scripts\SceneController\BaseSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\BathroomSceneController.cs" />
-    <Compile Include="Assets\Scripts\SceneController\BearSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\BedroomSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\KitchenSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\TerraceSceneController.cs" />
@@ -151,7 +143,6 @@
     <Compile Include="Assets\Scripts\UI\LevelUp\LevelUpAction.cs" />
     <Compile Include="Assets\Scripts\UI\Main\BathroomButtonController.cs" />
     <Compile Include="Assets\Scripts\UI\Main\BedroomButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\FarmButtonContainer.cs" />
     <Compile Include="Assets\Scripts\UI\Main\KitchenButtonController.cs" />
     <Compile Include="Assets\Scripts\UI\Main\MainUIController.cs" />
     <Compile Include="Assets\Scripts\UI\Main\RoomButtonController.cs" />

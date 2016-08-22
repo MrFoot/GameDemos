@@ -87,7 +87,7 @@ public class SceneTouchController
 
 	public float ResetTrackingTime = 0.05f;
 
-	public GameStateManager GameStateManager
+	public GameSceneStateManager GameStateManager
 	{
 		get;
 		set;
@@ -108,10 +108,10 @@ public class SceneTouchController
 		this.CouldBeAHorizonzalSwipe = true;
 		this.CouldBeAVerticalSwipe = true;
 		this.LayerMask = 1 << (UnityEngine.LayerMask.NameToLayer("Player"));
-		Main.Instance.GameStateManager.OnStateEnter += new StateManager<BaseGameState, GameAction>.StateChangeEvent(this.OnStateEnter);
+		Main.Instance.GameStateManager.OnStateEnter += new StateManager<BaseGameSceneState, GameAction>.StateChangeEvent(this.OnStateEnter);
 	}
 
-	public void OnStateEnter(BaseGameState previousState, object data)
+	public void OnStateEnter(BaseGameSceneState previousState, object data)
 	{
 //		if (Main.Instance.GameStateManager.CurrentState == null)
 //		{

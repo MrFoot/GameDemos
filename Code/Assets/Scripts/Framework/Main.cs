@@ -29,7 +29,7 @@ public class Main : MainBase {
 		private set;
 	}
 
-    public GameStateManager GameStateManager
+    public GameSceneStateManager GameStateManager
 	{
 		get;
 		private set;
@@ -69,7 +69,7 @@ public class Main : MainBase {
 		this.TableManager = new TableManager ();
 		this.EventBus = new EventBus ();
 		this.AppSession = new AppSession ();
-        this.GameStateManager = new GameStateManager();
+        this.GameStateManager = new GameSceneStateManager();
 		this.SceneTouchController = new SceneTouchController();
         this.UserManager = new UserManager();
         /*
@@ -134,7 +134,7 @@ public class Main : MainBase {
 	public void ClearPrefs()
 	{
 		AppSession.ClearPrefs ();
-		GameStateManager.ClearPrefs();
+		GameSceneStateManager.ClearPrefs();
 		MainGameLogic.ClearPrefs();
 		UserManager.ClearPrefs();
 		UserPrefs.Save ();

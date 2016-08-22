@@ -20,12 +20,6 @@ public class TerraceButtonController : RoomButtonController
 		}
 	}
 
-	protected override Room Room {
-		get {
-			return Room.Terrace;
-		}
-	}
-
 	protected override void Awake()
 	{
 		base.Awake();

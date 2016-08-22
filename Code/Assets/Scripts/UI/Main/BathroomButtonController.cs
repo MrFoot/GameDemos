@@ -22,14 +22,6 @@ public class BathroomButtonController : RoomButtonController
 		}
 	}
 
-	protected override Room Room
-	{
-		get
-		{
-			return Room.Bathroom;
-		}
-	}
-
 	protected override void Awake()
 	{
 		base.Awake();

@@ -4,6 +4,7 @@ public enum GameAction
 {
 	None,
 	Close,
+    Tips,
 	BackButton,
 	OpenTeethCleaning,
 	OpenShowerScene,
@@ -15,7 +16,6 @@ public enum GameAction
 	SelectCategory,
 	Next,
 	Previous,
-	OpenFarmGame,
 }
 
 

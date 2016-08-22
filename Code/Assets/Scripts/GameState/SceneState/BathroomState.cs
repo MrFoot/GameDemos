@@ -1,11 +1,11 @@
 
 using System;
 
-public class BathroomState : CommonRoomState
+public class BathroomState : BaseGameSceneState
 {
-	public BathroomState(GameStateManager stateManager) : base(stateManager)
+	public BathroomState(GameSceneStateManager stateManager) : base(stateManager)
 	{
-		this.BearSceneController = new BathroomSceneController ();
+		this.BaseSceneController = new BathroomSceneController ();
 	}
 
 	public override Level LevelEnum
@@ -27,10 +27,6 @@ public class BathroomState : CommonRoomState
 		}
 	}
 
-	public override CommonEditRoomState EditState()
-	{
-		return base.GameStateManager.EditBathroomState;
-	}
 }
 
 

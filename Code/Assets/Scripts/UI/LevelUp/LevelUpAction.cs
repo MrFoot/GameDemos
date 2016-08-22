@@ -15,13 +15,13 @@ public class LevelUpAction
 		private set;
 	}
 
-	public BaseGameState ReturnToState
+	public BaseGameSceneState ReturnToState
 	{
 		get;
 		private set;
 	}
 
-	public LevelUpAction(GameAction action, object dataObject, BaseGameState returnToState)
+	public LevelUpAction(GameAction action, object dataObject, BaseGameSceneState returnToState)
 	{
 		this.Action = action;
 		this.DataObject = dataObject;

@@ -5,14 +5,14 @@ using UnityEngine;
 using Soulgame.StateManagement;
 using UnityEngine.SceneManagement;
 
-public class GameStateManager : StateManager<BaseGameState, GameAction>
+public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction>
 {
 
 	/// <summary>
 	/// 游戏进入时加载的场景
 	/// </summary>
 	/// <value>The state of the entry.</value>
-	public BaseGameState EntryState
+	public BaseGameSceneState EntryState
 	{
 		get;
 		protected set;
@@ -59,41 +59,7 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 		private set;
 	}
 
-	public WardrobeState WardrobeState
-	{
-		get;
-		private set;
-	}
 
-	public EditKitchenState EditKitchenState
-	{
-		get;
-		private set;
-	}
-
-	public EditBathroomState EditBathroomState
-	{
-		get;
-		private set;
-	}
-
-	public EditBedroomState EditBedroomState
-	{
-		get;
-		private set;
-	}
-
-	public EditTerraceState EditTerraceState
-	{
-		get;
-		private set;
-	}
-
-	public FarmState FarmState
-	{
-		get;
-		private set;
-	}
 	#endregion
 	public GameAction LastTriggeredAction
 	{
@@ -101,19 +67,13 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 		set;
 	}
 
-    //public RoomEditController RoomEditController
-    //{
-    //    private get;
-    //    set;
-    //}
-
-	public BaseGameState PreviousSessionRoomState
+	public BaseGameSceneState PreviousSessionRoomState
 	{
 		get;
 		private set;
 	}
 
-	public static GameStateManager Instance
+	public static GameSceneStateManager Instance
 	{
 		get
 		{
@@ -121,18 +81,12 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 		}
 	}
 
-	public GameStateManager()
+	public GameSceneStateManager()
 	{
 		this.TerraceState = new TerraceState(this);
 		this.KitchenState = new KitchenState(this);
 		this.BathroomState = new BathroomState(this);
 		this.BedroomState = new BedroomState(this);
-		this.WardrobeState = new WardrobeState(this);
-		this.EditKitchenState = new EditKitchenState(this);
-		this.EditBathroomState = new EditBathroomState(this);
-		this.EditBedroomState = new EditBedroomState(this);
-		this.EditTerraceState = new EditTerraceState(this);
-		this.FarmState = new FarmState (this);
 	}
 	
 	public void Init()
@@ -142,17 +96,17 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 	
 	public override void OnUpdate()
 	{
-		if (GameStateManager.BlockUpdatesOnStart)
+		if (GameSceneStateManager.BlockUpdatesOnStart)
 		{
 			return;
 		}
 		base.OnUpdate();
 	}
 
-	protected Pair<BaseGameState, object> GetEntryStateAndData()
+	protected Pair<BaseGameSceneState, object> GetEntryStateAndData()
 	{
-		BaseGameState baseGameState = null; //this.RoomEditController.GetPendingUpdateItemGameState();
-		Level.LevelEnum @int = (Level.LevelEnum)UserPrefs.GetInt(GameStateManager.LastStateKey, 0);
+		BaseGameSceneState baseGameState = null;
+		Level.LevelEnum @int = (Level.LevelEnum)UserPrefs.GetInt(GameSceneStateManager.LastStateKey, 0);
 		switch (@int)
 		{
 		case Level.LevelEnum.Terrace:
@@ -176,17 +130,17 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 			baseGameState = this.BedroomState;
 		}
 		object second = this;
-		return new Pair<BaseGameState, object>(baseGameState, second);
+		return new Pair<BaseGameSceneState, object>(baseGameState, second);
 	}
 		
-	protected override bool BlockStateChange(BaseGameState newState)
+	protected override bool BlockStateChange(BaseGameSceneState newState)
 	{
 		return newState == null || base.BlockStateChange(newState);
 	}
 
 	public static void ClearPrefs()
 	{
-		UserPrefs.Remove(GameStateManager.LastStateKey);
+		UserPrefs.Remove(GameSceneStateManager.LastStateKey);
 	}
 
 	protected override void OnStateChanged()
@@ -228,7 +182,7 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 	public override void OnAppPause()
 	{
 		base.OnAppPause();
-		UserPrefs.SetInt(GameStateManager.LastStateKey, (int)this.LastSavedState);
+		UserPrefs.SetInt(GameSceneStateManager.LastStateKey, (int)this.LastSavedState);
 	}
 
 	public bool OnBackPress()
@@ -267,7 +221,7 @@ public class GameStateManager : StateManager<BaseGameState, GameAction>
 	
 	public void EnterInitialState()
 	{
-		Pair<BaseGameState, object> entryStateAndData = this.GetEntryStateAndData();
+		Pair<BaseGameSceneState, object> entryStateAndData = this.GetEntryStateAndData();
 		this.Data = entryStateAndData.Second;
 		this.EntryState = entryStateAndData.First;
 		Assert.IsTrue(this.EntryState != null, "Entry state must never be null", new object[0]);

@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-public class TerraceSceneController : BearSceneController
+public class TerraceSceneController : BaseSceneController
 {
 	public TerraceSceneController ()
 	{
