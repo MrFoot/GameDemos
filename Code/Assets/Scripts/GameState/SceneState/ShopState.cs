@@ -6,7 +6,7 @@ public class ShopState : BaseGameSceneState
 
 	public ShopState(GameSceneStateManager stateManager) : base(stateManager)
 	{
-		this.BaseSceneController = new BedroomSceneController ();
+		this.BaseSceneController = new ShopSceneController ();
 	}
 
 	public override Level LevelEnum

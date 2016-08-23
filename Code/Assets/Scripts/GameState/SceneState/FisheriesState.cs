@@ -4,7 +4,7 @@ public class FisheriesState : BaseGameSceneState
 {
 	public FisheriesState(GameSceneStateManager stateManager) : base(stateManager)
 	{
-		this.BaseSceneController = new BathroomSceneController ();
+		this.BaseSceneController = new FisheriesSceneController ();
 	}
 
 	public override Level LevelEnum
@@ -17,13 +17,7 @@ public class FisheriesState : BaseGameSceneState
 
 	public override void OnAction(GameAction gameAction, object data)
 	{
-		if (gameAction == GameAction.OpenTeethCleaning) {
-			//this.ChangeState (base.GameStateManager.TeethCleaningState);
-		} else if (gameAction == GameAction.OpenShowerScene) {
-			//this.ChangeState (base.GameStateManager.BathingState);
-		} else {
-			base.OnAction (gameAction, data);
-		}
+
 	}
 
 }

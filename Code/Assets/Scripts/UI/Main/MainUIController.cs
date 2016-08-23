@@ -5,9 +5,6 @@ using Soulgame.Util;
 
 public class MainUIController : MonoBehaviour {
 
-	private bool ForceStartMainPanel = true;
-
-	public bool IsAnyRoomButtonActive = true;
 
 	public static MainUIController Instance
 	{

@@ -9,7 +9,7 @@ public class AquariumState : BaseGameSceneState
 
 	public AquariumState(GameSceneStateManager stateManager) : base(stateManager)
 	{
-		this.BaseSceneController = new KitchenSceneController ();
+		this.BaseSceneController = new AquariumSceneController ();
 	}
 
 	public override Level LevelEnum
@@ -24,6 +24,24 @@ public class AquariumState : BaseGameSceneState
     {
         Debug.Log("OnEnter AquariumState");
         base.OnEnter(previousState, data);
+    }
+
+    public override void OnAction(GameAction gameAction, object data) {
+        switch (gameAction)
+        {
+            case GameAction.ToFisheries:
+                this.ChangeState(base.GameStateManager.FisheriesState);
+                break;
+            case GameAction.ToShop:
+                this.ChangeState(base.GameStateManager.ShopState);
+                break;
+
+            default:
+                base.OnAction(gameAction, data);
+                break;
+        }
+
+        
     }
 
 }

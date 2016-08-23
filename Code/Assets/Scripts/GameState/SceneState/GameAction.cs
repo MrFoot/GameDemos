@@ -6,16 +6,9 @@ public enum GameAction
 	Close,
     Tips,
 	BackButton,
-	OpenTeethCleaning,
-	OpenShowerScene,
-	OpenTerrace,
-	OpenKitchen,
-	OpenBathroom,
-	OpenBedroom,
-	OpenWardrobe,
-	SelectCategory,
-	Next,
-	Previous,
+	ToFisheries,        //到渔场场景
+	ToAquarium,         //到水族馆
+	ToShop,             //到商城
 }
 
 

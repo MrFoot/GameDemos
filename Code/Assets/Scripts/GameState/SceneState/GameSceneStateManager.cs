@@ -35,24 +35,29 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 	public bool IgnoreLevelLoad;
 
 	#region State
+
+    //剧情
 	public StoryState StoryState
 	{
 		get;
 		private set;
 	}
 
+    //水族馆
 	public AquariumState AquariumState
 	{
 		get;
 		private set;
 	}
 
+    //渔场
 	public FisheriesState FisheriesState
 	{
 		get;
 		private set;
 	}
 
+    //商城
 	public ShopState ShopState
 	{
 		get;

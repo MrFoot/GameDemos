@@ -17,8 +17,7 @@
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -93,12 +92,12 @@
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\Base\BaseGameSceneState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\FisheriesState.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\ShopState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameAction.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameSceneStateManager.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\ShopState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\StoryState.cs" />
     <Compile Include="Assets\Scripts\Input\CameraGyroLookAt.cs" />
     <Compile Include="Assets\Scripts\Input\SceneTouchController.cs" />
@@ -107,11 +106,11 @@
     <Compile Include="Assets\Scripts\Network\HttpLite.cs" />
     <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
     <Compile Include="Assets\Scripts\Network\PlayerService.cs" />
+    <Compile Include="Assets\Scripts\SceneController\AquariumSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\BaseSceneController.cs" />
-    <Compile Include="Assets\Scripts\SceneController\BathroomSceneController.cs" />
-    <Compile Include="Assets\Scripts\SceneController\BedroomSceneController.cs" />
-    <Compile Include="Assets\Scripts\SceneController\KitchenSceneController.cs" />
-    <Compile Include="Assets\Scripts\SceneController\TerraceSceneController.cs" />
+    <Compile Include="Assets\Scripts\SceneController\FisheriesSceneController.cs" />
+    <Compile Include="Assets\Scripts\SceneController\ShopSceneController.cs" />
+    <Compile Include="Assets\Scripts\SceneController\StorySceneController.cs" />
     <Compile Include="Assets\Scripts\SimpleJson\SimpleJson.cs" />
     <Compile Include="Assets\Scripts\StateManagement\IAutoOpenState.cs" />
     <Compile Include="Assets\Scripts\StateManagement\StateManager.cs" />
@@ -135,20 +134,7 @@
     <Compile Include="Assets\Scripts\Thread\MainThread.cs" />
     <Compile Include="Assets\Scripts\Thread\SimpleWorker.cs" />
     <Compile Include="Assets\Scripts\Thread\ThreadExecutor.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\ButtonActionController.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\GameActionButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\NextButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\PercentageLabelController.cs" />
-    <Compile Include="Assets\Scripts\UI\Base\PreviousButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\LevelUp\LevelUpAction.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\BathroomButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\BedroomButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\KitchenButtonController.cs" />
     <Compile Include="Assets\Scripts\UI\Main\MainUIController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\RoomButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\RoomButtonsController.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\TerraceButtonController.cs" />
-    <Compile Include="Assets\Scripts\UI\Wardrobe\DressEditController.cs" />
     <Compile Include="Assets\Scripts\User\AddOnInfo.cs" />
     <Compile Include="Assets\Scripts\User\UserInfo.cs" />
     <Compile Include="Assets\Scripts\User\UserManager.cs" />

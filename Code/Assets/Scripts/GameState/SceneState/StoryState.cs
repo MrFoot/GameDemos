@@ -4,7 +4,7 @@ public class StoryState : BaseGameSceneState
 {
 	public StoryState(GameSceneStateManager stateManager) : base(stateManager)
 	{
-		this.BaseSceneController = new TerraceSceneController ();
+		this.BaseSceneController = new StorySceneController ();
 	}
 
 	public override Level LevelEnum
