@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\GameState\CharacterState\BaseCharacterState.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterAction.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStateManager.cs" />
+    <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\BaseGameSceneState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\FisheriesState.cs" />
