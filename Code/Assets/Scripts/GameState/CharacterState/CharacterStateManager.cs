@@ -12,29 +12,41 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 	/// 游戏进入时加载的场景
 	/// </summary>
 	/// <value>The state of the entry.</value>
-	public BaseGameSceneState EntryState
+	public BaseCharacterState EntryState
 	{
 		get;
 		protected set;
 	}
 
+    public CharacterBase CharacterBase {
+        get;
+        protected set;
+    }
+
 	protected override string Tag
 	{
 		get
 		{
-			return "GameStateManager";
+            return "CharacterStateManager";
 		}
 	}
 
-	protected const string LastStateKey = "GameStateManager.LastState";
-
-	private Level.LevelEnum LastSavedState;
-
-	public static bool BlockUpdatesOnStart = true;
-
-	public bool IgnoreLevelLoad;
-
 	#region State
+    public IdleState IdleState {
+        get;
+        private set;
+    }
+
+    public EscapeState EscapeState {
+        get;
+        private set;
+    }
+
+    public PlayingState PlayingState {
+        get;
+        private set;
+    }
+
 
 
 	#endregion
@@ -44,23 +56,13 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 		set;
 	}
 
-	public BaseGameSceneState PreviousSessionRoomState
+    public CharacterStateManager(CharacterBase characterBase)
 	{
-		get;
-		private set;
-	}
+        this.CharacterBase = characterBase;
 
-	public static GameSceneStateManager Instance
-	{
-		get
-		{
-			return Main.Instance.GameStateManager;
-		}
-	}
-
-    public CharacterStateManager()
-	{
-
+        this.IdleState = new IdleState(this);
+        this.EscapeState = new EscapeState(this);
+        this.PlayingState = new PlayingState(this);
 	}
 	
 	public void Init()
@@ -70,10 +72,6 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 	
 	public override void OnUpdate()
 	{
-		if (GameSceneStateManager.BlockUpdatesOnStart)
-		{
-			return;
-		}
 		base.OnUpdate();
 	}
 
@@ -85,24 +83,7 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 	protected override void OnStateChanged()
 	{
 		base.OnStateChanged();
-        /*
-		if (base.CurrentState == this.AquariumState)
-		{
-            this.LastSavedState = Level.LevelEnum.Aquarium;
-		}
-		else if (base.CurrentState == this.FisheriesState)
-		{
-            this.LastSavedState = Level.LevelEnum.Fisheries;
-		}
-		else if (base.CurrentState == this.ShopState)
-		{
-			this.LastSavedState = Level.LevelEnum.Shop;
-		}
-		else if (base.CurrentState == this.StoryState)
-		{
-			this.LastSavedState = Level.LevelEnum.Story;
-		}
-         * */
+
 	}
 	
 	protected override void ToNullState()
@@ -124,11 +105,6 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 		}
 		return flag;
 	}
-
-	public void OnLevelWasLoaded(int lvl)
-	{
-		this.OnStateChanged();
-	}
 	
 	protected override void StartStateChange()
 	{
@@ -140,16 +116,16 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 	
 	public void EnterInitialState()
 	{
-        /*
-		this.Data = entryStateAndData.Second;
-		this.EntryState = entryStateAndData.First;
+		this.Data = this;
+        this.EntryState = this.IdleState;
 		Assert.IsTrue(this.EntryState != null, "Entry state must never be null", new object[0]);
 		base.NextState = this.EntryState;
 		if (base.PreviousState == null)
 		{
 			base.OnStatePreEnterEvent(base.NextState, base.PreviousState, this.Data);
 		}
-         * */
+
+        this.OnStateChanged();
 	}
 }
 

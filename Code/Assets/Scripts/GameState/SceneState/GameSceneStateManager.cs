@@ -30,7 +30,7 @@ public class GameSceneStateManager : StateManager<BaseGameSceneState, GameAction
 
 	private Level.LevelEnum LastSavedState;
 
-	public static bool BlockUpdatesOnStart = true;
+	public static bool BlockUpdatesOnStart = false;
 
 	public bool IgnoreLevelLoad;
 

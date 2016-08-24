@@ -96,7 +96,8 @@ public class Main : MainBase {
 
 		//初始化顺序不能变
 		this.TableManager.Init ();
-        this.UserManager.Init(); 
+        this.UserManager.Init();
+        CharacterFactory.Init();
 	}
 
 	protected override void OnAppStart ()

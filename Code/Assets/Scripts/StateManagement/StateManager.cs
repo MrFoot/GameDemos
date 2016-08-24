@@ -321,6 +321,7 @@ namespace Soulgame.StateManagement
 			{
 				return;
 			}
+            
 			this.CurrentState.OnUpdate ();
 		}
 		

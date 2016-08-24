@@ -82,6 +82,9 @@
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\SimpleSpawner.cs" />
     <Compile Include="Assets\Scripts\Asset\AssetManager.cs" />
     <Compile Include="Assets\Scripts\AssetDebug.cs" />
+    <Compile Include="Assets\Scripts\Charactor\AbstractCharacterBase.cs" />
+    <Compile Include="Assets\Scripts\Charactor\CharacterBase.cs" />
+    <Compile Include="Assets\Scripts\Charactor\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\CubeAction.cs" />
     <Compile Include="Assets\Scripts\Event\EventBus.cs" />
     <Compile Include="Assets\Scripts\Event\EventListenerList.cs" />
@@ -94,6 +97,7 @@
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\BaseCharacterState.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterAction.cs" />
+    <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterFactory.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStateManager.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />

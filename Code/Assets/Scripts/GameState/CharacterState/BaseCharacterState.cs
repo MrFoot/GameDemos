@@ -1,14 +1,14 @@
 using System;
 using Soulgame.StateManagement;
+using Soulgame.Util;
 
 public abstract class BaseCharacterState : StateManager<BaseCharacterState, CharacterAction>.State
 {
 	public virtual string Tag
 	{
-		get
-		{
-			return base.GetType().Name;
-		}
+		get{
+            return base.GetType().Name;
+        }
 	}
 	
     public CharacterStateManager CharacterStateManager
@@ -26,8 +26,9 @@ public abstract class BaseCharacterState : StateManager<BaseCharacterState, Char
     public override void OnPreExit(BaseCharacterState nextState, object data)
     {
         base.OnPreExit(nextState, data);
-        if (nextState != null)
+        if (nextState != null) 
         {
+
         }
 
     }
@@ -37,16 +38,19 @@ public abstract class BaseCharacterState : StateManager<BaseCharacterState, Char
         base.OnPreEnter(previousState, data);
         if (previousState != null)
         {
+
         }
         return this;
     }
 
     public override void OnEnter(BaseCharacterState previousState, object data)
 	{
+        GameLog.Debug("OnEnter : " + this.ToString());
 	}
 
     public override void OnExit(BaseCharacterState nextState, object data)
 	{
+        GameLog.Debug("OnExit : " + this.ToString() + "Next State : " + nextState.ToString());
 	}
 		
     //这里处理一些在各个场景都要用到的事件，如 弹出警告框，货币更新等
