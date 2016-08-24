@@ -92,8 +92,11 @@
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
+    <Compile Include="Assets\Scripts\GameState\CharacterState\BaseCharacterState.cs" />
+    <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterAction.cs" />
+    <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStateManager.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\Base\BaseGameSceneState.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\BaseGameSceneState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\FisheriesState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameAction.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameSceneStateManager.cs" />
