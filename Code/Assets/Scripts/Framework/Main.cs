@@ -61,7 +61,7 @@ public class Main : MainBase {
 		this.ApplyProperties();
 		this.InitObjects();
 
-        
+        GameLog.Level = GameLog.LogLevel.ERROR;
 	}
 
 	private void InstantiateObjects()

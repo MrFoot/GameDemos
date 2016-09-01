@@ -5,28 +5,47 @@ using System.Collections;
 /// 巡游
 /// </summary>
 public class IdleState : BaseCharacterState {
-    private Vector3 des = new Vector3(30, 10, -10);
-    private CharacterModel model;
+
+    CharacterBase character;
+    Vector3 size;
+    Vector3 des;
+    float baseSpeed;
     
     public IdleState(CharacterStateManager mgr) 
-        : base(mgr) { 
-
+        : base(mgr) {
+        
+        character = this.CharacterStateManager.CharacterBase;
+        baseSpeed = character.Speed;
     }
 
     public override void OnEnter(BaseCharacterState previousState, object data) {
         base.OnEnter(previousState, data);
-        model = this.CharacterStateManager.CharacterBase.Model;
+
+        size = character.Room.Size;
+        ReFreshDes();
+    }
+
+    void ReFreshDes()
+    {
+        float randomX = Random.Range(0, size.x);
+        float randomY = Random.Range(0, size.y);
+        float randomZ = Random.Range(0, size.z);
+
+        des = new Vector3(randomX, randomY > size.y/2 ? size.y /3 * 2 : size.y / 3, randomZ);
+
+        character.Speed = baseSpeed + Random.Range(-3, 3);
     }
 
     public override void OnUpdate() {
-        if (!model.IsAtPosition(des))
+
+        if (!character.Model.IsAtPosition(des))
         {
-            model.Move(des, Time.deltaTime);
+            character.Model.Move(des, Time.deltaTime);
         }
         else
         {
-            //des = Random.Range(-1f, 1f) * new Vector3(30, 10, -10);
-            ChangeState(this.CharacterStateManager.EscapeState);
+            //ChangeState(this.CharacterStateManager.EscapeState);
+            ReFreshDes();
         }
         
         base.OnUpdate();
@@ -40,7 +59,7 @@ public class IdleState : BaseCharacterState {
 public class EscapeState : BaseCharacterState {
     private CharacterBase character;
 
-    private Vector3 farAway = new Vector3(100, 100, 0);
+    private Vector3 farAway = new Vector3(0, 0, 100);
     public EscapeState(CharacterStateManager mgr) 
         : base(mgr) {
             character = this.CharacterStateManager.CharacterBase;

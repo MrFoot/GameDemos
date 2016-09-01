@@ -19,14 +19,20 @@ public class CharacterBase : AbstractCharacterBase {
     public float Speed {
         get {
             if (this.Model != null)
-                return Model.Speed;
+                return Model.MoveSpeed;
             return 15;
         }
 
         set {
             if (this.Model != null)
-                this.Model.Speed = value;
+                this.Model.MoveSpeed = value;
         }
+    }
+
+    public BaseTank Room
+    {
+        get;
+        private set;
     }
 
     #endregion
@@ -39,6 +45,14 @@ public class CharacterBase : AbstractCharacterBase {
     public CharacterBase(string model) {
         this.CharacterStateManager = new CharacterStateManager(this);
         this.Load(model);
+    }
+
+    public CharacterBase(string model,BaseTank room)
+    {
+        this.CharacterStateManager = new CharacterStateManager(this);
+        this.Load(model);
+
+        Room = room;
     }
 
 	public override void Init()

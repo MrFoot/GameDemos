@@ -9,9 +9,9 @@ public class CharacterFactory {
 
     }
 
-    static public CharacterBase CreateCharacter(int characterId) {
+    static public CharacterBase CreateCharacter(int characterId,BaseTank tank) {
 
-        return new CharacterBase("Cube");
+        return new CharacterBase("Cube", tank);
     }
 	
 }

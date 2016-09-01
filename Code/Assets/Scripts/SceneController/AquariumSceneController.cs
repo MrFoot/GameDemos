@@ -11,12 +11,11 @@ public class AquariumSceneController : BaseSceneController
 
     public Button BtnShop;
 
-    public List<CharacterBase> Fishes;
+    public BaseTank Tank;
 
 	public AquariumSceneController ()
 	{
 		this.Level = Level.Aquarium;
-        Fishes = new List<CharacterBase>();
 	}
 
     public void OnBtnFisheries()
@@ -29,21 +28,18 @@ public class AquariumSceneController : BaseSceneController
     {
         GameLog.Debug("OnBtnShop");
         //Main.Instance.GameStateManager.FireAction(GameAction.ToShop);
-        Fishes[0].Init();
+        Tank.IsActive = !Tank.IsActive;
     }
 
     public override void OnEnter() {
         base.OnEnter();
-
-        CharacterBase Fish = CharacterFactory.CreateCharacter(0);
-        Fishes.Add(Fish);
+        Tank = new TankA(100,100,100);
+        Tank.Init();
+        
     }
 
     public override void OnUpdate() {
-        for (int i = 0 ; i < Fishes.Count ; i++)
-        {
-            Fishes[i].OnUpdate();
-        }
+        Tank.OnUpdate();
         base.OnUpdate();
     }
 

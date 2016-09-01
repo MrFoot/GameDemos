@@ -82,7 +82,7 @@ namespace Soulgame.Util
 
             while (decompressInfo.Progress < 1.0f)
             {
-                decompressInfo.Progress += 0.01f;
+                decompressInfo.Progress += 0.1f;
                 yield return null;
             }
 			

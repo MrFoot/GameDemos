@@ -8,10 +8,11 @@ public class CharacterModel : MonoBehaviour {
     [HideInInspector]
     public GameObject CatchedGo;
 
-    private const float Precision = 0.1f;
+    //[HideInInspector]
+    public float MoveSpeed = 15;
+    public float TurnSpeed = 5;
 
-    [HideInInspector]
-    public float Speed = 15;
+    private const float Precision = 0.1f;  //精度
 
     public Animator Animator {
         get;
@@ -40,6 +41,7 @@ public class CharacterModel : MonoBehaviour {
         CatchedTrans.position = Vector3.zero;
     }
 
+
     public void Move(Vector3 des, float delta) {
         Vector3 vec = des - CatchedTrans.position;
         float dis = vec.magnitude;
@@ -48,10 +50,21 @@ public class CharacterModel : MonoBehaviour {
         {
             Vector3 dir = vec.normalized;
 
-            CatchedTrans.position += dir * delta * Speed;
+            CatchedTrans.position += dir * delta * MoveSpeed;
+            //CatchedTrans.Translate(Vector3.left * Random.Range(-delta * MoveSpeed, delta * MoveSpeed));
+            LockAt(des, delta);
         }
         
     }
+
+    void LockAt(Vector3 target,float delta)
+    {
+        Vector3 dir = target - CatchedTrans.position;
+
+        Quaternion lookRot = Quaternion.LookRotation(dir);
+        CatchedTrans.rotation = Quaternion.Slerp(CatchedTrans.rotation, lookRot, Mathf.Clamp01(TurnSpeed * delta));
+    }
+
 
     public bool IsAtPosition(Vector3 pos) {
 

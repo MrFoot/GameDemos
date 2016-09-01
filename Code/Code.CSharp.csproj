@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\AssetDebug.cs" />
     <Compile Include="Assets\Scripts\Charactor\AbstractCharacterBase.cs" />
     <Compile Include="Assets\Scripts\Charactor\CharacterBase.cs" />
+    <Compile Include="Assets\Scripts\Charactor\CharacterFactory.cs" />
     <Compile Include="Assets\Scripts\Charactor\CharacterModel.cs" />
     <Compile Include="Assets\Scripts\CubeAction.cs" />
     <Compile Include="Assets\Scripts\Event\EventBus.cs" />
@@ -97,7 +98,6 @@
     <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\BaseCharacterState.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterAction.cs" />
-    <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterFactory.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStateManager.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\AquariumState.cs" />
@@ -135,6 +135,8 @@
     <Compile Include="Assets\Scripts\Table\TablePath.cs" />
     <Compile Include="Assets\Scripts\Table\TipsTable.cs" />
     <Compile Include="Assets\Scripts\Table\TipsTableDataFile.cs" />
+    <Compile Include="Assets\Scripts\Tank\BaseTank.cs" />
+    <Compile Include="Assets\Scripts\Tank\TankA.cs" />
     <Compile Include="Assets\Scripts\TestCube.cs" />
     <Compile Include="Assets\Scripts\Thread\Executor.cs" />
     <Compile Include="Assets\Scripts\Thread\GameThread.cs" />
@@ -172,6 +174,7 @@
     <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
     <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
     <None Include="Assets\Shaders\PlayerShader.shader" />
+    <None Include="Assets\Shaders\TransparentShader.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
     <None Include="Assets\Underwater_animal_pack\README.txt" />

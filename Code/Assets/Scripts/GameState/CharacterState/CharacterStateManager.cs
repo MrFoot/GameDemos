@@ -7,11 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class CharacterStateManager : StateManager<BaseCharacterState, CharacterAction>
 {
-
-	/// <summary>
-	/// 游戏进入时加载的场景
-	/// </summary>
-	/// <value>The state of the entry.</value>
 	public BaseCharacterState EntryState
 	{
 		get;
