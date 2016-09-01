@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Opaque
-  m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: Transparent
+  m_Shader: {fileID: 4800000, guid: c2d4fe958529bdb42adeda48c56ccf69, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -15,6 +15,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
+    - first:
+        name: _AfterTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - first:
         name: _BumpMap
       second:
@@ -58,6 +64,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _MixTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _OcclusionMap
       second:
         m_Texture: {fileID: 0}
@@ -70,6 +82,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _Alpha
+      second: 1
+    - first:
+        name: _BlendTexAlpha
+      second: 0.5
     - first:
         name: _BumpScale
       second: 1
@@ -113,12 +131,21 @@ Material:
         name: _SrcBlend
       second: 1
     - first:
+        name: _TransVal
+      second: 0.35
+    - first:
         name: _UVSec
       second: 0
     - first:
         name: _ZWrite
       second: 1
     m_Colors:
+    - first:
+        name: _AfterColor
+      second: {r: 0, g: 0, b: 0, a: 0.419}
+    - first:
+        name: _BlendColor
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _Color
       second: {r: 1, g: 1, b: 1, a: 1}
