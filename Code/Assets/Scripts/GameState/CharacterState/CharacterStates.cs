@@ -9,17 +9,19 @@ public class IdleState : BaseCharacterState {
     CharacterBase character;
     Vector3 size;
     Vector3 des;
-    float baseSpeed;
+    float baseMoveSpeed;
     
     public IdleState(CharacterStateManager mgr) 
         : base(mgr) {
         
         character = this.CharacterStateManager.CharacterBase;
-        baseSpeed = character.Speed;
     }
 
     public override void OnEnter(BaseCharacterState previousState, object data) {
         base.OnEnter(previousState, data);
+
+        baseMoveSpeed = character.Model.MoveSpeed;
+        character.Model.TurnSpeed = 10;
 
         size = character.Room.Size;
         ReFreshDes();
@@ -33,7 +35,7 @@ public class IdleState : BaseCharacterState {
 
         des = new Vector3(randomX, randomY > size.y/2 ? size.y /3 * 2 : size.y / 3, randomZ);
 
-        character.Speed = baseSpeed + Random.Range(-3, 3);
+        character.Model.MoveSpeed = baseMoveSpeed + Random.Range(-3, 3);
     }
 
     public override void OnUpdate() {
@@ -49,6 +51,18 @@ public class IdleState : BaseCharacterState {
         }
         
         base.OnUpdate();
+    }
+
+    public override void OnAction(CharacterAction characterAction, object data) {
+        switch (characterAction)
+        {
+            case CharacterAction.Shock:
+                this.ChangeState(this.CharacterStateManager.EscapeState);
+                break;
+            default:
+                base.OnAction(characterAction,data);
+                break;
+        }
     }
 
 }
@@ -67,7 +81,9 @@ public class EscapeState : BaseCharacterState {
 
     public override void OnEnter(BaseCharacterState previousState, object data) {
         base.OnEnter(previousState, data);
-        character.Speed = 30;
+
+        character.Model.TurnSpeed = 20;
+        character.Model.MoveSpeed = 50;
     }
 
     public override void OnUpdate() {

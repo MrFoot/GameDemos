@@ -53,7 +53,6 @@ public abstract class BaseCharacterState : StateManager<BaseCharacterState, Char
         GameLog.Debug("OnExit : " + this.ToString() + "Next State : " + nextState.ToString());
 	}
 		
-    //这里处理一些在各个场景都要用到的事件，如 弹出警告框，货币更新等
     public override void OnAction(CharacterAction characterAction, object data)
 	{
         switch (characterAction)

@@ -38,15 +38,26 @@ public class BaseTank{
 
     public void Add()
     {
-        CharacterBase fish = CharacterFactory.CreateCharacter(0, this);
-        fish.Init();
-        Fishes.Add(fish);
+        for (int i = 0 ; i < 15 ; i++)
+        {
+            CharacterBase fish = CharacterFactory.CreateCharacter(0, this);
+            Fishes.Add(fish);
+        }
     }
 
     public void Remove(CharacterBase fish)
     {
         Fishes.Remove(fish);
     }
+
+
+    public void Shock() {
+        for (int i = 0, max = Fishes.Count; i < max; i++)
+        {
+            Fishes[i].CharacterStateManager.FireAction(CharacterAction.Shock);
+        }
+    }
+
 
     public virtual void OnUpdate()
     {

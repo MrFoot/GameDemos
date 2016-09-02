@@ -16,19 +16,9 @@ public class CharacterBase : AbstractCharacterBase {
 
     #region Properties
 
-    public float Speed {
-        get {
-            if (this.Model != null)
-                return Model.MoveSpeed;
-            return 15;
-        }
-
-        set {
-            if (this.Model != null)
-                this.Model.MoveSpeed = value;
-        }
-    }
-
+    /// <summary>
+    /// 鱼所在容器（鱼缸/渔场）
+    /// </summary>
     public BaseTank Room
     {
         get;
@@ -49,15 +39,14 @@ public class CharacterBase : AbstractCharacterBase {
 
     public CharacterBase(string model,BaseTank room)
     {
-        this.CharacterStateManager = new CharacterStateManager(this);
-        this.Load(model);
-
         Room = room;
+        this.CharacterStateManager = new CharacterStateManager(this);
+
+        this.Load(model);
     }
 
 	public override void Init()
 	{
-        this.CharacterStateManager.Init();
 	}
 
 	protected bool Load(string model) {
@@ -85,6 +74,8 @@ public class CharacterBase : AbstractCharacterBase {
 
         this.LoadAnimator();
         this.Reset();
+
+        this.CharacterStateManager.Init();
     }
 
 	public override void Unload()

@@ -22,6 +22,7 @@ public class AquariumSceneController : BaseSceneController
     {
         GameLog.Debug("OnBtnFisheries");
         //Main.Instance.GameStateManager.FireAction(GameAction.ToFisheries);
+        Tank.Shock();
     }
 
     public void OnBtnShop() 

@@ -7,6 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class CharacterStateManager : StateManager<BaseCharacterState, CharacterAction>
 {
+
+    private const string MsgInvalidToFireAction = "It's invalid to fire an action inside any of the State's methods. Fired action {0} in current state {1}.";
+    private const string MsgCantCallOnActionTwiceFromTheSameStack = "Can't call OnAction from the same stack twice or more...";
+    private object PassForwardData;
+
+    private bool mStateChanging = false;
+
 	public BaseCharacterState EntryState
 	{
 		get;
@@ -53,6 +60,7 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 
     public CharacterStateManager(CharacterBase characterBase)
 	{
+        Debug.Log("new CharacterStateManager");
         this.CharacterBase = characterBase;
 
         this.IdleState = new IdleState(this);
@@ -68,6 +76,9 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 	public override void OnUpdate()
 	{
 		base.OnUpdate();
+
+        if (mStateChanging)
+            mStateChanging = false;
 	}
 
 	protected override bool BlockStateChange(BaseCharacterState newState)
@@ -91,19 +102,35 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 		base.OnAppPause();
 	}
 
-	public override bool FireAction(CharacterAction characterAction, object data)
-	{
-        bool flag = !StateManager.ActionTriggeredInUpdate && base.FireAction(characterAction, data); ;
-		if (flag)
-		{
-            this.LastTriggeredAction = characterAction;
-		}
-		return flag;
-	}
-	
+    public override bool FireAction(CharacterAction characterAction, object data) {
+        if (this.CurrentState == null)
+        {
+            return false;
+        }
+        Assert.IsTrue(!this.ActionProcessing, MsgInvalidToFireAction, new object[]
+			{
+				characterAction,
+				this.CurrentState
+			});
+        if (mStateChanging)
+        {
+            return false;
+        }
+        this.ActionProcessing = true;
+        Assert.IsTrue(!this.OnActionExecuting, MsgCantCallOnActionTwiceFromTheSameStack, new object[0]);
+        this.PassForwardData = data;
+        this.HandleFireAction(characterAction, data);
+        this.PassForwardData = null;
+        this.ActionProcessing = false;
+        StateManager.ActionTriggeredInUpdate = true;
+
+        this.LastTriggeredAction = characterAction;
+        return true;
+    }
+
 	protected override void StartStateChange()
 	{
-		StateManager.StateChanging = true;
+        mStateChanging = true;
 		StateManager.StateChangedInternal = true;
 
 		base.StartStateChange();
@@ -122,6 +149,7 @@ public class CharacterStateManager : StateManager<BaseCharacterState, CharacterA
 
         this.OnStateChanged();
 	}
+
 }
 
 
