@@ -121,6 +121,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\AtlasMaker.cs" />
     <Compile Include="Assets\Editor\CreateAnimator.cs" />
     <Compile Include="Assets\Editor\CreateAssetsBundle.cs" />
     <Compile Include="Assets\Editor\CreateTableAsset.cs" />
@@ -132,6 +133,7 @@
     <Compile Include="Assets\Editor\TestEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Characters\904001\904001.xml" />
     <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
     <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
     <None Include="Assets\Shaders\PlayerShader.shader" />

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<character name="904001" id="904001">
+
+	<animation name="standby" enable="1" start_frame="0" end_frame="150" description="普通待机" loop="1"/>
+
+	<animation name="standby1" enable="0" start_frame="160" end_frame="229" description="美术说去掉" loop="0"/>
+
+	<animation name="standby_leisure1" enable="1" start_frame="240" end_frame="343" description="休闲动作1" loop="0"/>
+
+	<animation name="standby_leisure2" enable="1" start_frame="355" end_frame="469" description="休闲动作2" loop="0"/>
+</character>

@@ -171,6 +171,7 @@
     <Compile Include="Assets\Scripts\protocol\ServiceDat.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Characters\904001\904001.xml" />
     <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
     <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
     <None Include="Assets\Shaders\PlayerShader.shader" />
