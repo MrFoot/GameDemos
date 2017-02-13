@@ -9,10 +9,10 @@ public class CharacterModel : MonoBehaviour {
     public GameObject CatchedGo;
 
     //[HideInInspector]
-    public float MoveSpeed = 15;
-    public float TurnSpeed = 5;
+    public float MoveSpeed = 5;
+    public float TurnSpeed = 2;
 
-    private const float Precision = 0.1f;  //精度
+    private const float Precision = 0.05f;  //精度
 
     public Animator Animator {
         get;
@@ -67,7 +67,6 @@ public class CharacterModel : MonoBehaviour {
 
 
     public bool IsAtPosition(Vector3 pos) {
-
         return (pos - CatchedTrans.position).magnitude < Precision;
     }
 

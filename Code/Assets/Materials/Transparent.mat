@@ -132,7 +132,7 @@ Material:
       second: 1
     - first:
         name: _TransVal
-      second: 0.19
+      second: 0
     - first:
         name: _UVSec
       second: 0

@@ -34,7 +34,8 @@ public class AquariumSceneController : BaseSceneController
 
     public override void OnEnter() {
         base.OnEnter();
-        Tank = new TankA(100,100,100);
+        int x = 20;
+        Tank = new TankA(x,x,x);
         Tank.Init();
         
     }
