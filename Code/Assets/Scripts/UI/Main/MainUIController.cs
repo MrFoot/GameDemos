@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using Soulgame.Util;
+using UnityEngine.EventSystems;
 
 public class MainUIController : MonoBehaviour {
 
@@ -24,11 +25,11 @@ public class MainUIController : MonoBehaviour {
 
     public void OnSceneStatePreEnter(BaseGameSceneState baseGameSceneState)
 	{
-
+        
 	}
 
     public void OnSceneStatePreExit(BaseGameSceneState baseGameSceneState) {
-
+        
     }
 
     public void ShowTips(string tips) {
