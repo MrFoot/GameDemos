@@ -7,7 +7,9 @@ public class AssetDebug : MonoBehaviour {
     public bool DebugGUI;
 
     public bool LoadBundle;
-    public bool LoadAsset;
+
+    public bool LoadAssetFromBundle;
+    public bool LoadAssetFromResources;
 
     public bool UnloadAssets;
     public bool UnloadBundle;
@@ -42,10 +44,16 @@ public class AssetDebug : MonoBehaviour {
             UnloadBundle = false;
         }
 
-        if (LoadAsset)
+        if (LoadAssetFromBundle)
         {
-            _t.LoadAsset();
-            LoadAsset = false;
+            _t.LoadAssetFromBundle();
+            LoadAssetFromBundle = false;
+        }
+
+        if(LoadAssetFromResources)
+        {
+            _t.LoadAssetFromResources();
+            LoadAssetFromResources = false;
         }
 
         if (LoadBundle)
@@ -63,6 +71,9 @@ public class Test1 {
     AssetManager.Asset cubes;
     float tBegin;
     AssetManager.Bundle _bundle;
+
+    string objName = "Cube1";
+
     private void OnAssetLoaded(AssetManager.Asset asset) {
         Debug.Log(string.Format("asset : {0} , States : {1}",asset.Name,asset.State));
 
@@ -72,8 +83,27 @@ public class Test1 {
 
         if (asset.State == AssetManager.State.Loaded)
         {
+            GameObject.Instantiate(cubes.AssetObject);
         }
 
+    }
+
+    public void LoadAssetFromBundle()
+    {
+        tBegin = Time.realtimeSinceStartup;
+        AssetManager.LoadAsyncAssetFromBundle(_bundle, objName, typeof(GameObject), OnAssetLoaded);
+    }
+
+    public void LoadAssetFromResources()
+    {
+        tBegin = Time.realtimeSinceStartup;
+        AssetManager.LoadAssetFromResources("amberjack", typeof(GameObject), (AssetManager.Asset asset) =>
+        {
+            if (asset.State == AssetManager.State.Loaded)
+            {
+                GameObject.Instantiate(asset.AssetObject);
+            }
+        });
     }
 
     private void OnBundleLoaded(AssetManager.Bundle bundle) {
@@ -81,19 +111,6 @@ public class Test1 {
         Debug.Log("CostTime  =  " + (Time.realtimeSinceStartup - tBegin) + "s");
 
         _bundle = bundle;
-        /*
-        if (bundle.State == AssetManager.State.Loaded)
-        {
-            tBegin = Time.realtimeSinceStartup;
-            AssetManager.LoadAssetFromBundle(bundle, "Cube1", typeof(GameObject), OnAssetLoaded);
-        }
-        */
-    }
-
-    public void LoadAsset() {
-        tBegin = Time.realtimeSinceStartup;
-        //AssetManager.LoadAsyncAssetFromResources("Prefabs/Cube1", typeof(GameObject), OnAssetLoaded);
-        AssetManager.LoadAsyncAssetFromBundle(_bundle, "Cube1", typeof(GameObject), OnAssetLoaded);
     }
 
     public void LoadBundle() {
@@ -104,12 +121,18 @@ public class Test1 {
 
     public void UnloadBundle() {
         if (_bundle != null && _bundle.State != AssetManager.State.Invalid)
-            AssetManager.UnloadBundle(_bundle);
+        {
+            AssetManager.UnloadBundle(_bundle,false);
+            Debug.Log("UnloadBundle Suc");
+        }
     }
 
     public void UnloadAssets() {
         if (cubes != null && cubes.State != AssetManager.State.Invalid)
+        {
             AssetManager.UnloadAsset(cubes);
+            Debug.Log("UnloadAssets Suc");
+        }
     }
 }
 

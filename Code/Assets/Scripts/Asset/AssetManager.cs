@@ -239,10 +239,10 @@ namespace Soulgame.Asset
 			bundle.OnLoaded();
 			return bundle;
 		}
-		
-		public static void UnloadBundle(AssetManager.Bundle bundle)
+
+        public static void UnloadBundle(AssetManager.Bundle bundle, bool unloadAllLoadedObjects)
 		{
-			bundle.AssetBundle.Unload(true);
+            bundle.AssetBundle.Unload(unloadAllLoadedObjects);
 			bundle.AssetBundle = null;
 			bundle.State = AssetManager.State.Invalid;
 			AssetManager.Bundles.Remove(bundle);
@@ -280,7 +280,8 @@ namespace Soulgame.Asset
 			asset.Name = name;
 			asset.Type = type;
 			asset.Bundle = bundle;
-			asset.AssetLoaded += assetLoaded;  //如果之前加载过这个资源并且委托没有删除则会继续通知哦...
+            asset.ClearEvents();   //如果先请求loadAsset，然后才loadBundle，不管前面的无效请求，只管loadBundle之后的loadAsset
+			asset.AssetLoaded += assetLoaded;
 			return OnLoadAsset(asset);
 		}
 
