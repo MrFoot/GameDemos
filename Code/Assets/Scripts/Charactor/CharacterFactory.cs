@@ -11,7 +11,7 @@ public class CharacterFactory {
 
     static public CharacterBase CreateCharacter(int characterId,BaseTank tank) {
 
-        return new CharacterBase("Cube", tank);
+        return new CharacterBase("amberjack", tank);
     }
 	
 }

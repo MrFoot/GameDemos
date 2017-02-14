@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class BaseTank{
 
@@ -34,11 +35,16 @@ public class BaseTank{
 
     public virtual void Init()
     {
+        Action<int> action = (x) => x *= 2;
+        action(2);
+        action.Invoke(2);
+
+        Debug.LogError(action.Target.ToString());
     }
 
     public void Add()
     {
-        for (int i = 0 ; i < 15 ; i++)
+        for (int i = 0 ; i < 10 ; i++)
         {
             CharacterBase fish = CharacterFactory.CreateCharacter(0, this);
             Fishes.Add(fish);

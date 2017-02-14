@@ -95,6 +95,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012029721218}
   - 111: {fileID: 111000010618669584}
+  - 65: {fileID: 65000011199749064}
   m_Layer: 0
   m_Name: amberjack
   m_TagString: Untagged
@@ -259,7 +260,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013456518668}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0.018126143, z: -0.15546691}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -298,10 +299,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012341824604}
-  m_LocalRotation: {x: 0.4967, y: 0.50327843, z: 0.49669993, w: 0.5032784}
-  m_LocalPosition: {x: -0.00000005124669, y: 0.701103, z: -1.1723877}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
   m_Children:
   - {fileID: 4000010887486216}
   - {fileID: 4000013807438314}
@@ -314,7 +315,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012167194390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6106572, y: -1.0693502, z: -5.5615897}
+  m_LocalPosition: {x: 7.502319, y: 3.038289, z: 6.922186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -448,6 +449,18 @@ Transform:
   - {fileID: 4000010300941600}
   m_Father: {fileID: 4000010887486216}
   m_RootOrder: 0
+--- !u!65 &65000011199749064
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012167194390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 4}
+  m_Center: {x: 0, y: -0.62, z: -0.51}
 --- !u!111 &111000010618669584
 Animation:
   m_ObjectHideFlags: 1
