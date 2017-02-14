@@ -111,12 +111,33 @@ public class Test1 {
         Debug.Log("CostTime  =  " + (Time.realtimeSinceStartup - tBegin) + "s");
 
         _bundle = bundle;
+
     }
 
     public void LoadBundle() {
         tBegin = Time.realtimeSinceStartup;
-        AssetManager.LoadAsyncBundle("cubes", OnBundleLoaded);
-        //AssetManager.LoadBundle("cubes", OnBundleLoaded);
+        //AssetManager.LoadAsyncBundle("cubes", OnBundleLoaded);
+
+
+        //AssetManager.LoadBundle("StreamingAssets", (AssetManager.Bundle bundle) =>
+        //{
+        //    AssetManager.LoadAsyncAssetFromBundle(bundle, "AssetBundleManifest", typeof(AssetBundleManifest), (AssetManager.Asset asset) =>
+        //    {
+        //        AssetBundleManifest mani = asset.AssetObject as AssetBundleManifest;
+
+        //        string[] dependName = mani.GetAllDependencies("cubes");
+
+        //        foreach (string name in dependName)
+        //        {
+        //            AssetManager.LoadBundle(name, OnBundleLoaded);
+        //        }
+
+        //        AssetManager.LoadBundle("cubes", OnBundleLoaded);
+        //    });
+
+        //});
+
+        AssetManager.LoadBundle("cubes", OnBundleLoaded);
     }
 
     public void UnloadBundle() {

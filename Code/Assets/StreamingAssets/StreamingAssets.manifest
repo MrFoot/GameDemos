@@ -1,7 +1,14 @@
 ManifestFileVersion: 0
-CRC: 1671965976
+CRC: 2476250840
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: cubes
+      Dependencies:
+        Dependency_0: materials
+    Info_1:
+      Name: transparentobj
+      Dependencies: {}
+    Info_2:
+      Name: materials
       Dependencies: {}

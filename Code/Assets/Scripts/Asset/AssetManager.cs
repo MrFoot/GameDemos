@@ -130,6 +130,8 @@ namespace Soulgame.Asset
         //异步加载完成列表
 		private static List<AssetManager.AsyncActiveItem> AsyncActiveItems = new List<AssetManager.AsyncActiveItem>(1);
 
+        private static AssetBundleManifest Manifest = null;
+
 		public static bool DebugInfo = false;
 		
 		private static Vector2 DebugScrollViewPosition = Vector2.zero;
@@ -178,8 +180,20 @@ namespace Soulgame.Asset
 		
 		public static void Initialize()
 		{
-			Caching.CleanCache();
+            Caching.CleanCache();
+            InitDependences();
 		}
+
+        public static void InitDependences()
+        {
+            AssetManager.loadBundle("StreamingAssets", (AssetManager.Bundle bundle) =>
+            {
+                AssetManager.LoadAssetFromBundle(bundle, "AssetBundleManifest", typeof(AssetBundleManifest), (AssetManager.Asset asset) =>
+                {
+                    Manifest = asset.AssetObject as AssetBundleManifest;
+                });
+            });
+        }
 
         // Speed : LoadAsyncBundle < LoadBundle
 		public static AssetManager.Bundle LoadAsyncBundle(string name, AssetManager.OnBundleLoaded bundleLoaded)
@@ -211,7 +225,27 @@ namespace Soulgame.Asset
 			return bundle;
 		}
 
-		public static AssetManager.Bundle LoadBundle(string name, AssetManager.OnBundleLoaded bundleLoaded)
+        //先载入依赖
+        private static void LoadDependencies(string name)
+        {
+            if (Manifest != null)
+            {
+                string[] dependbundleNames = Manifest.GetAllDependencies(name);
+
+                foreach (string _name in dependbundleNames)
+                {
+                    AssetManager.loadBundle(_name, (Bundle b) => { });
+                }
+            }
+        }
+
+        public static AssetManager.Bundle LoadBundle(string name, AssetManager.OnBundleLoaded bundleLoaded) {
+
+            LoadDependencies(name);
+            return AssetManager.loadBundle(name, bundleLoaded);
+        }
+
+		private static AssetManager.Bundle loadBundle(string name, AssetManager.OnBundleLoaded bundleLoaded)
 		{
 			int num = AssetManager.Bundles.FindIndex((AssetManager.Bundle b) => b.Name == name);
 			if (num != -1)
