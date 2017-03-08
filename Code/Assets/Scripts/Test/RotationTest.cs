@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 /**
  *  Transform 的 旋转API
  * */
-public class TestCube : MonoBehaviour {
+public class RotationTest : MonoBehaviour
+{
 
     public enum RotateType
     {
@@ -128,4 +130,10 @@ public class TestCube : MonoBehaviour {
         mCatchedTrans.LookAt(mCatchedTrans.parent);
     }
 
+    
+    
+
 }
+
+
+ 

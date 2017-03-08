@@ -81,12 +81,10 @@
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\ReallySimpleParticleSpawner.cs" />
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\SimpleSpawner.cs" />
     <Compile Include="Assets\Scripts\Asset\AssetManager.cs" />
-    <Compile Include="Assets\Scripts\AssetDebug.cs" />
     <Compile Include="Assets\Scripts\Charactor\AbstractCharacterBase.cs" />
     <Compile Include="Assets\Scripts\Charactor\CharacterBase.cs" />
     <Compile Include="Assets\Scripts\Charactor\CharacterFactory.cs" />
     <Compile Include="Assets\Scripts\Charactor\CharacterModel.cs" />
-    <Compile Include="Assets\Scripts\CubeAction.cs" />
     <Compile Include="Assets\Scripts\Event\EventBus.cs" />
     <Compile Include="Assets\Scripts\Event\EventListenerList.cs" />
     <Compile Include="Assets\Scripts\Framework\EventId.cs" />
@@ -122,7 +120,6 @@
     <Compile Include="Assets\Scripts\SceneController\ShopSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\StorySceneController.cs" />
     <Compile Include="Assets\Scripts\SimpleJson\SimpleJson.cs" />
-    <Compile Include="Assets\Scripts\SortFunctions.cs" />
     <Compile Include="Assets\Scripts\StateManagement\IAutoOpenState.cs" />
     <Compile Include="Assets\Scripts\StateManagement\StateManager.cs" />
     <Compile Include="Assets\Scripts\Table\FarmLandTable.cs" />
@@ -140,7 +137,13 @@
     <Compile Include="Assets\Scripts\Table\TipsTableDataFile.cs" />
     <Compile Include="Assets\Scripts\Tank\BaseTank.cs" />
     <Compile Include="Assets\Scripts\Tank\TankA.cs" />
-    <Compile Include="Assets\Scripts\TestCube.cs" />
+    <Compile Include="Assets\Scripts\Test\AssetDebug.cs" />
+    <Compile Include="Assets\Scripts\Test\CubeAction.cs" />
+    <Compile Include="Assets\Scripts\Test\RotationTest.cs" />
+    <Compile Include="Assets\Scripts\Test\SocketServer.cs" />
+    <Compile Include="Assets\Scripts\Test\SocketTest.cs" />
+    <Compile Include="Assets\Scripts\Test\SortFunctions.cs" />
+    <Compile Include="Assets\Scripts\Test\ThreadTest.cs" />
     <Compile Include="Assets\Scripts\Thread\Executor.cs" />
     <Compile Include="Assets\Scripts\Thread\GameThread.cs" />
     <Compile Include="Assets\Scripts\Thread\Looper.cs" />
