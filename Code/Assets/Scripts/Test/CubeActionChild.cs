@@ -2,19 +2,9 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEditor;
 
-public class TouchInfo
+public class CubeActionChild : CubeAction
 {
-    public Vector3 pos;
-    public Vector3 lastPos;
-    public Vector3 delta;
-    public Vector3 totalDelta;
-
-    public bool dragStart;
-}
-
-public class CubeAction :  MonoBehaviour{
 
     private float touchDragThreshold = 20f * 20f;
 
@@ -24,99 +14,9 @@ public class CubeAction :  MonoBehaviour{
 
     private bool active = false;
 
-    void Awake()
-    {
-        Debug.Log("Awake");
-        EditorApplication.isPaused = true;
-    }
-
 	void Start () {
         Trans = this.transform;
-        Debug.Log("Start");
 	}
-
-
-    void OnMouseEnter()
-    {
-        //Debug.Log(gameObject.name + " : OnMouseEnter");
-    }
-
-    void OnMouseExit()
-    {
-        //Debug.Log(gameObject.name + " : OnMouseExit");
-    }
-
-    void OnMouseDown()
-    {
-        currentTouch = new TouchInfo();
-        currentTouch.pos = Input.mousePosition;
-        currentTouch.lastPos = Input.mousePosition;
-        currentTouch.delta = Vector3.zero;
-        currentTouch.totalDelta = Vector3.zero;
-        currentTouch.dragStart = false;
-    }
-
-    void OnMouseDrag()
-    {
-        if(!currentTouch.dragStart)
-        {
-            currentTouch.pos = Input.mousePosition;
-            currentTouch.delta = currentTouch.pos - currentTouch.lastPos;
-            currentTouch.totalDelta += currentTouch.delta;
-            currentTouch.lastPos = Input.mousePosition;
-
-            float mag = currentTouch.totalDelta.sqrMagnitude;
-
-            if (mag > touchDragThreshold)
-            {
-                currentTouch.dragStart = true;
-                Debug.Log("dragStart");
-
-            }
-        }
-    }
-
-    void OnMouseUp()
-    {
-        if (!currentTouch.dragStart)
-        {
-            OnClick();
-        }
-
-        currentTouch = null;
-    }
-
-    void OnClick()
-    {
-        Debug.Log("OnClick");
-    }
-
-    void OnBecameVisible()
-    {
-        //Debug.Log("OnBecameVisible");
-    }
-
-    void OnBecameInvisible()
-    {
-        //Debug.Log("OnBecameInvisible");
-    }
-
-    void OnEnable()
-    {
-        Debug.Log("OnEnable");
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("OnDisable : " + (int)Instruction.Health + " size = " + sizeof(Instruction));
-
-    }
-
-    enum Instruction : byte
-    {
-        Health = 0xFF,
-        
-    }
 
     //public override void OnBeginDrag(PointerEventData data)
     //{

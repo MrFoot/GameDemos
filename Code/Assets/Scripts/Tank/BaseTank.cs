@@ -35,11 +35,6 @@ public class BaseTank{
 
     public virtual void Init()
     {
-        Action<int> action = (x) => x *= 2;
-        action(2);
-        action.Invoke(2);
-
-        Debug.LogError(action.Target.ToString());
     }
 
     public void Add()
