@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using FootStudio.Event;
+using FootStudio.Framework;
 using FootStudio.Util;
 using System.Collections.Generic;
 using FootStudio.StateManagement;
@@ -111,7 +111,6 @@ public class Main : MainBase {
 	public void ClearPrefs()
 	{
 		AppSession.ClearPrefs ();
-		SceneStateManager.ClearPrefs();
 		UserPrefs.Save ();
 	}
 

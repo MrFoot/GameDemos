@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FootStudio.Event
+namespace FootStudio.Framework
 {
 	public delegate void OnEvent(object eventData);
 

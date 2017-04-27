@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using FootStudio.Util;
 
 
-namespace FootStudio.Event
+namespace FootStudio.Framework
 {
 	public class EventListenerList
 	{

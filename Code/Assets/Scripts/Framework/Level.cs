@@ -11,38 +11,39 @@ public class Level
 		Shop,    //ил╣Й
 	}
 
-    public static readonly Level Story = new Level("Story", Level.LevelEnum.Story);
-
-    public static readonly Level Aquarium = new Level("Aquarium", Level.LevelEnum.Aquarium);
-
-    public static readonly Level Fisheries = new Level("Fisheries", Level.LevelEnum.Fisheries);
-
-    public static readonly Level Shop = new Level("Shop", Level.LevelEnum.Shop);
+    public static readonly Level Test = new Level("Test", Level.LevelEnum.Story,true);
 
 	public static readonly Level[] All = new Level[]
 	{
-		Level.Story,
-		Level.Aquarium,
-		Level.Fisheries,
-		Level.Shop,
+		Level.Test,
 	};
 
 	public string Name
 	{
 		get;
-		set;
+		private set;
 	}
 	
 	public Level.LevelEnum Value
 	{
 		get;
-		set;
+        private set;
 	}
+
+    /// <summary>
+    /// true : ShowLoading
+    /// </summary>
+    public bool Async
+    {
+        get;
+        private set;
+    }
 	
-	public Level(string name, Level.LevelEnum value)
+	public Level(string name, Level.LevelEnum value, bool async)
 	{
 		this.Name = name;
 		this.Value = value;
+        this.Async = async;
 	}
 	
 	public override string ToString()

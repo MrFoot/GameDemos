@@ -1,6 +1,6 @@
 
 using System;
-using FootStudio.Event;
+using FootStudio.Framework;
 
 
 namespace FootStudio.Util
