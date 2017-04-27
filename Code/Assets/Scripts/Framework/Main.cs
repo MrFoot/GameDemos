@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soulgame.Event;
-using Soulgame.Util;
+using FootStudio.Event;
+using FootStudio.Util;
 using System.Collections.Generic;
-using Soulgame.StateManagement;
+using FootStudio.StateManagement;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
 public class Main : MainBase {
-
-	private HashSet<string> IgnoreLevelLoadedNames;
 
 	public static Main Instance
 	{
@@ -29,13 +27,7 @@ public class Main : MainBase {
 		private set;
 	}
 
-    public GameSceneStateManager GameStateManager
-	{
-		get;
-		private set;
-	}
-
-	public SceneTouchController SceneTouchController
+    public SceneStateManager SceneStateManager
 	{
 		get;
 		private set;
@@ -46,16 +38,9 @@ public class Main : MainBase {
 		private set;
 	}
 
-    public UserManager UserManager { 
-        get; 
-        private set; 
-    }
-
 	protected override void Awake() {
 		base.Awake ();
-		this.IgnoreLevelLoadedNames = new HashSet<string>();
-		this.IgnoreLevelLoadedNames.Add("StartUp");
-		this.IgnoreLevelLoadedNames.Add("Main");
+
 		Main.Instance = this;
 		this.InstantiateObjects();
 		this.ApplyProperties();
@@ -66,15 +51,13 @@ public class Main : MainBase {
 
 	private void InstantiateObjects()
 	{
+        AssetManager.Initialize();
+
 		this.TableManager = new TableManager ();
 		this.EventBus = new EventBus ();
 		this.AppSession = new AppSession ();
-        this.GameStateManager = new GameSceneStateManager();
-		this.SceneTouchController = new SceneTouchController();
-        this.UserManager = new UserManager();
-        /*
-         * 实例化各个 Controllers
-         * */
+        this.SceneStateManager = new SceneStateManager();
+
 	}
 
 	private void ApplyProperties()
@@ -90,54 +73,45 @@ public class Main : MainBase {
 	private void InitObjects()
 	{
 		this.AppSession.Init ();
-		this.SceneTouchController.Init();
-		base.MainGameLogic.Init();
-		this.GameStateManager.Init();
+		this.SceneStateManager.Init();
 
 		//初始化顺序不能变
 		this.TableManager.Init ();
-        this.UserManager.Init();
-        CharacterFactory.Init();
 	}
 
 	protected override void OnAppStart ()
 	{
-		base.MainGameLogic.OnAppResume ();
 	}
 
 	protected override void OnAppResume ()
 	{
 		this.AppSession.OnAppResume ();
-		this.GameStateManager.OnAppResume();
-		base.MainGameLogic.OnAppResume ();
+		this.SceneStateManager.OnAppResume();
 		this.EventBus.FireEvent (EventId.APP_RESUME);
 	}
 
 	protected override void OnAppPause (bool quitting)
 	{
-		this.GameStateManager.OnAppPause();
+		this.SceneStateManager.OnAppPause();
 		this.AppSession.OnAppPause ();
-		base.MainGameLogic.OnAppPause();
 		this.EventBus.FireEvent (EventId.APP_PAUSE, quitting);
 	}
 
 	protected override void OnBackPress ()
 	{
-		this.GameStateManager.OnBackPress();
+		this.SceneStateManager.OnBackPress();
 	}
 
 	protected override void Update()
 	{
 		base.Update ();
-		this.GameStateManager.OnUpdate();
+		this.SceneStateManager.OnUpdate();
 	}
 
 	public void ClearPrefs()
 	{
 		AppSession.ClearPrefs ();
-		GameSceneStateManager.ClearPrefs();
-		MainGameLogic.ClearPrefs();
-		UserManager.ClearPrefs();
+		SceneStateManager.ClearPrefs();
 		UserPrefs.Save ();
 	}
 
@@ -149,10 +123,7 @@ public class Main : MainBase {
     protected void  OnLevelLoaded(Scene s, LoadSceneMode m) {
         Debug.Log("Scene Name = " + s.name + " | " + "LoadSceneMode = " + m);
 
-        if (!this.IgnoreLevelLoadedNames.Contains(s.name))
-        {
-            this.GameStateManager.OnLevelWasLoaded(s.buildIndex);
-        }
+        this.SceneStateManager.OnLevelWasLoaded(s.buildIndex);
     }
 
 }

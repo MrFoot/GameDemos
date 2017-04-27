@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Text;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class StringUtils
 	{

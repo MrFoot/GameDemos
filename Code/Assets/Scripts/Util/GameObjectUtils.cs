@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class GameObjectUtils
 	{

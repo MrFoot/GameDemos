@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Collections;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class ResourceManager
 	{

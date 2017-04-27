@@ -1,6 +1,6 @@
 using System;
-using Soulgame.StateManagement;
-using Soulgame.Util;
+using FootStudio.StateManagement;
+using FootStudio.Util;
 
 public abstract class BaseCharacterState : StateManager<BaseCharacterState, CharacterAction>.State
 {

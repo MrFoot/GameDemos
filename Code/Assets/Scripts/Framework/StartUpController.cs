@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soulgame.Util;
+using FootStudio.Util;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 

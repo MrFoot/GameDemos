@@ -1,6 +1,6 @@
 
 using System;
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public class Pair<F, S>
 	{

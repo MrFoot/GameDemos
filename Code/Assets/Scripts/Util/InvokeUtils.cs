@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class InvokeUtils
 	{

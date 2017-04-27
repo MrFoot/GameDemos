@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class FileLogger
 	{

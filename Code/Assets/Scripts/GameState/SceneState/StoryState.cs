@@ -2,7 +2,7 @@ using System;
 
 public class StoryState : BaseGameSceneState
 {
-	public StoryState(GameSceneStateManager stateManager) : base(stateManager)
+	public StoryState(SceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new StorySceneController ();
 	}

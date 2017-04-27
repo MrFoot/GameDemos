@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-using Soulgame.Util;
+using FootStudio.Util;
 using System.Collections;
 using System.Collections.Generic;
 

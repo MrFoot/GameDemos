@@ -4,7 +4,7 @@ using System.Text;
 using System.Security.Cryptography;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class CryptoUtils
 	{

@@ -7,7 +7,7 @@ using System.Collections;
 public class AquariumState : BaseGameSceneState
 {
 
-	public AquariumState(GameSceneStateManager stateManager) : base(stateManager)
+	public AquariumState(SceneStateManager stateManager) : base(stateManager)
 	{
         this.BaseSceneController = GameObject.Find("AquariumSceneController").GetComponent <AquariumSceneController>();
 	}

@@ -252,7 +252,7 @@ class CreateUnityClass
                                                 "using System.IO;",
                                                 "using System.Collections;",
                                                 "using System.Collections.Generic;",
-												"using Soulgame.Util;",
+												"using FootStudio.Util;",
                                              };
     #endregion
 

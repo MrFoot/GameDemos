@@ -1,9 +1,9 @@
 
 using System;
-using Soulgame.Event;
+using FootStudio.Event;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public class AppSession
 	{

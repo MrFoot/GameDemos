@@ -2,7 +2,7 @@ using System;
 
 public class FisheriesState : BaseGameSceneState
 {
-	public FisheriesState(GameSceneStateManager stateManager) : base(stateManager)
+	public FisheriesState(SceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new FisheriesSceneController ();
 	}

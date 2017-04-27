@@ -1,9 +1,9 @@
 using System;
-using Soulgame.Threading;
+using FootStudio.Threading;
 using UnityEngine;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class UnityLogHandler
 	{

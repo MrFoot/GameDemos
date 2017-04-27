@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soulgame.Threading;
-using Soulgame.Asset;
+using FootStudio.Threading;
 
 public abstract class MainBase : MonoBehaviour {
 
@@ -9,22 +8,9 @@ public abstract class MainBase : MonoBehaviour {
 
 	private bool Started;
 
-    //public MainThread MainThread {
-    //    get;
-    //    private set;
-    //}
-
-	public MainGameLogic MainGameLogic
-	{
-		get;
-		private set;
-	}
-
 	protected virtual void Awake() {
 		DontDestroyOnLoad (this);
-		//this.MainThread = gameObject.AddComponent<MainThread> ();
-		this.MainGameLogic = base.gameObject.AddComponent<MainGameLogic>();
-		AssetManager.Initialize();
+		
 		Application.targetFrameRate = 60;
 	}
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class CollectionUtils
 	{

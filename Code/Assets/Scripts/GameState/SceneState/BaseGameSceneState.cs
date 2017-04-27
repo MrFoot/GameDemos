@@ -1,5 +1,5 @@
 using System;
-using Soulgame.StateManagement;
+using FootStudio.StateManagement;
 
 public abstract class BaseGameSceneState : StateManager<BaseGameSceneState, GameAction>.State
 {
@@ -16,13 +16,13 @@ public abstract class BaseGameSceneState : StateManager<BaseGameSceneState, Game
 		get;
 	}
 	
-	public GameSceneStateManager GameStateManager
+	public SceneStateManager GameStateManager
 	{
 		get;
 		private set;
 	}
 	
-	protected BaseGameSceneState(GameSceneStateManager stateManager) : base(stateManager)
+	protected BaseGameSceneState(SceneStateManager stateManager) : base(stateManager)
 	{
 		this.GameStateManager = stateManager;
 	}

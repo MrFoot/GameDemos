@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Soulgame.Asset;
 
 public class AssetDebug : MonoBehaviour {
 

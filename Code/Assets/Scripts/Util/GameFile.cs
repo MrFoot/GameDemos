@@ -3,7 +3,7 @@ using System;
 using System.IO;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class GameFile
 	{

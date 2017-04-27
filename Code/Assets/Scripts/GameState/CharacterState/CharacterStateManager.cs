@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Soulgame.Util;
+using FootStudio.Util;
 using UnityEngine;
-using Soulgame.StateManagement;
+using FootStudio.StateManagement;
 using UnityEngine.SceneManagement;
 
 public class CharacterStateManager : StateManager<BaseCharacterState, CharacterAction>

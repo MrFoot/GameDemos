@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public static class EncryptUtils
 	{

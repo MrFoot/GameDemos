@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 
-namespace Soulgame.Util
+namespace FootStudio.Util
 {
 	public class TriangleUtils
 	{

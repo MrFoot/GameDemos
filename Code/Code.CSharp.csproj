@@ -15,7 +15,7 @@
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile>Assets\smcs.rsp</CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
-    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -80,20 +80,31 @@
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\ReallySimpleAudioSpawner.cs" />
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\ReallySimpleParticleSpawner.cs" />
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\SimpleSpawner.cs" />
-    <Compile Include="Assets\Scripts\Asset\AssetManager.cs" />
-    <Compile Include="Assets\Scripts\Charactor\AbstractCharacterBase.cs" />
-    <Compile Include="Assets\Scripts\Charactor\CharacterBase.cs" />
-    <Compile Include="Assets\Scripts\Charactor\CharacterFactory.cs" />
-    <Compile Include="Assets\Scripts\Charactor\CharacterModel.cs" />
-    <Compile Include="Assets\Scripts\Event\EventBus.cs" />
-    <Compile Include="Assets\Scripts\Event\EventListenerList.cs" />
+    <Compile Include="Assets\Scripts\Framework\Assert.cs" />
+    <Compile Include="Assets\Scripts\Framework\AssetManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\EventBus.cs" />
     <Compile Include="Assets\Scripts\Framework\EventId.cs" />
+    <Compile Include="Assets\Scripts\Framework\EventListenerList.cs" />
+    <Compile Include="Assets\Scripts\Framework\GameLog.cs" />
     <Compile Include="Assets\Scripts\Framework\GameMain.cs" />
     <Compile Include="Assets\Scripts\Framework\Level.cs" />
     <Compile Include="Assets\Scripts\Framework\Main.cs" />
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
+    <Compile Include="Assets\Scripts\Framework\Network\BaseService.cs" />
+    <Compile Include="Assets\Scripts\Framework\Network\HttpLite.cs" />
+    <Compile Include="Assets\Scripts\Framework\Network\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\Network\PlayerService.cs" />
+    <Compile Include="Assets\Scripts\Framework\SimpleJson\SimpleJson.cs" />
+    <Compile Include="Assets\Scripts\Framework\Singleton.cs" />
     <Compile Include="Assets\Scripts\Framework\StartUpController.cs" />
-    <Compile Include="Assets\Scripts\GameLogic\MainGameLogic.cs" />
+    <Compile Include="Assets\Scripts\Framework\StateManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\Executor.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\GameThread.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\Looper.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\MainThread.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\SimpleWorker.cs" />
+    <Compile Include="Assets\Scripts\Framework\Thread\ThreadExecutor.cs" />
+    <Compile Include="Assets\Scripts\Framework\UserPrefs.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\BaseCharacterState.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterAction.cs" />
     <Compile Include="Assets\Scripts\GameState\CharacterState\CharacterStateManager.cs" />
@@ -102,16 +113,9 @@
     <Compile Include="Assets\Scripts\GameState\SceneState\BaseGameSceneState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\FisheriesState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\GameAction.cs" />
-    <Compile Include="Assets\Scripts\GameState\SceneState\GameSceneStateManager.cs" />
+    <Compile Include="Assets\Scripts\GameState\SceneState\SceneStateManager.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\ShopState.cs" />
     <Compile Include="Assets\Scripts\GameState\SceneState\StoryState.cs" />
-    <Compile Include="Assets\Scripts\Input\CameraGyroLookAt.cs" />
-    <Compile Include="Assets\Scripts\Input\SceneTouchController.cs" />
-    <Compile Include="Assets\Scripts\Input\TouchRemapper.cs" />
-    <Compile Include="Assets\Scripts\Network\BaseService.cs" />
-    <Compile Include="Assets\Scripts\Network\HttpLite.cs" />
-    <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
-    <Compile Include="Assets\Scripts\Network\PlayerService.cs" />
     <Compile Include="Assets\Scripts\Pattern\ActorUnit.cs" />
     <Compile Include="Assets\Scripts\Pattern\CommondPattern.cs" />
     <Compile Include="Assets\Scripts\SceneController\AquariumSceneController.cs" />
@@ -119,9 +123,6 @@
     <Compile Include="Assets\Scripts\SceneController\FisheriesSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\ShopSceneController.cs" />
     <Compile Include="Assets\Scripts\SceneController\StorySceneController.cs" />
-    <Compile Include="Assets\Scripts\SimpleJson\SimpleJson.cs" />
-    <Compile Include="Assets\Scripts\StateManagement\IAutoOpenState.cs" />
-    <Compile Include="Assets\Scripts\StateManagement\StateManager.cs" />
     <Compile Include="Assets\Scripts\Table\FarmLandTable.cs" />
     <Compile Include="Assets\Scripts\Table\FarmLandTableDataFile.cs" />
     <Compile Include="Assets\Scripts\Table\FarmSeedTable.cs" />
@@ -135,8 +136,6 @@
     <Compile Include="Assets\Scripts\Table\TablePath.cs" />
     <Compile Include="Assets\Scripts\Table\TipsTable.cs" />
     <Compile Include="Assets\Scripts\Table\TipsTableDataFile.cs" />
-    <Compile Include="Assets\Scripts\Tank\BaseTank.cs" />
-    <Compile Include="Assets\Scripts\Tank\TankA.cs" />
     <Compile Include="Assets\Scripts\Test\AssetDebug.cs" />
     <Compile Include="Assets\Scripts\Test\CubeAction.cs" />
     <Compile Include="Assets\Scripts\Test\CubeActionChild.cs" />
@@ -145,18 +144,7 @@
     <Compile Include="Assets\Scripts\Test\SocketTest.cs" />
     <Compile Include="Assets\Scripts\Test\SortFunctions.cs" />
     <Compile Include="Assets\Scripts\Test\ThreadTest.cs" />
-    <Compile Include="Assets\Scripts\Thread\Executor.cs" />
-    <Compile Include="Assets\Scripts\Thread\GameThread.cs" />
-    <Compile Include="Assets\Scripts\Thread\Looper.cs" />
-    <Compile Include="Assets\Scripts\Thread\MainThread.cs" />
-    <Compile Include="Assets\Scripts\Thread\SimpleWorker.cs" />
-    <Compile Include="Assets\Scripts\Thread\ThreadExecutor.cs" />
-    <Compile Include="Assets\Scripts\UI\Main\MainUIController.cs" />
-    <Compile Include="Assets\Scripts\User\AddOnInfo.cs" />
-    <Compile Include="Assets\Scripts\User\UserInfo.cs" />
-    <Compile Include="Assets\Scripts\User\UserManager.cs" />
     <Compile Include="Assets\Scripts\Util\AppSession.cs" />
-    <Compile Include="Assets\Scripts\Util\Assert.cs" />
     <Compile Include="Assets\Scripts\Util\BuildConfig.cs" />
     <Compile Include="Assets\Scripts\Util\CollectionUtils.cs" />
     <Compile Include="Assets\Scripts\Util\CryptoUtils.cs" />
@@ -164,17 +152,14 @@
     <Compile Include="Assets\Scripts\Util\EncryptUtils.cs" />
     <Compile Include="Assets\Scripts\Util\FileLogger.cs" />
     <Compile Include="Assets\Scripts\Util\GameFile.cs" />
-    <Compile Include="Assets\Scripts\Util\GameLog.cs" />
     <Compile Include="Assets\Scripts\Util\GameObjectUtils.cs" />
     <Compile Include="Assets\Scripts\Util\GeometryUtils.cs" />
     <Compile Include="Assets\Scripts\Util\InvokeUtils.cs" />
     <Compile Include="Assets\Scripts\Util\Pair.cs" />
     <Compile Include="Assets\Scripts\Util\ResourceManager.cs" />
-    <Compile Include="Assets\Scripts\Util\Singleton.cs" />
     <Compile Include="Assets\Scripts\Util\StringUtils.cs" />
     <Compile Include="Assets\Scripts\Util\TriangleUtils.cs" />
     <Compile Include="Assets\Scripts\Util\UnityLogHandler.cs" />
-    <Compile Include="Assets\Scripts\Util\UserPrefs.cs" />
     <Compile Include="Assets\Scripts\protocol\ServiceDat.cs" />
     <Compile Include="Assets\testTrig.cs" />
   </ItemGroup>

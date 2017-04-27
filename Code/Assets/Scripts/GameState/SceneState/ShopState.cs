@@ -4,7 +4,7 @@ using System.Collections;
 public class ShopState : BaseGameSceneState
 {
 
-	public ShopState(GameSceneStateManager stateManager) : base(stateManager)
+	public ShopState(SceneStateManager stateManager) : base(stateManager)
 	{
 		this.BaseSceneController = new ShopSceneController ();
 	}
