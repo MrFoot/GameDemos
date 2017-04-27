@@ -100,7 +100,10 @@ public class SceneStateManager : BaseStateManager<SceneAction>
 
 	public void OnLevelWasLoaded(int lvl)
 	{
-		this.OnStateChanged();
+        if (StateManager.StateChangedInternal)
+        {
+            this.OnStateChanged();
+        }
 	}
 	
 	protected override void StartStateChange()

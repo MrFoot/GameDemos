@@ -8,10 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
   - enabled: 1
-    path: Assets/Scenes/Aquarium.unity
+    path: Assets/Scenes/Main.unity
   - enabled: 1
-    path: Assets/Scenes/Story.unity
+    path: Assets/Scenes/Test.unity
   - enabled: 1
-    path: Assets/Scenes/Fisheries.unity
-  - enabled: 1
-    path: Assets/Scenes/Shop.unity
+    path: Assets/Scenes/UI.unity

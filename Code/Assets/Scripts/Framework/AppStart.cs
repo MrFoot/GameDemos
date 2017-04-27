@@ -92,7 +92,9 @@ public class AppStart : MonoBehaviour {
         this.AsyncMain = SceneManager.LoadSceneAsync("Main");
         this.AsyncMain.allowSceneActivation = false;
         this.MainLoading = true;
+        Debug.LogError("Before yield");
         yield return this.AsyncMain;
+        Debug.LogError("After yield");
 
         this.MainLoading = false;
         Debug.Log("+++++++++++++ AsyncMain.Done");
@@ -133,6 +135,7 @@ public class AppStart : MonoBehaviour {
                 if (DisplayProgress == 100 && !this.AsyncMain.allowSceneActivation)
                 {
                     this.AsyncMain.allowSceneActivation = true;
+                    //Debug.LogError("allowSceneActivation = true");
                 }
             }
 

@@ -26,13 +26,10 @@ public class CubeAction :  MonoBehaviour{
 
     void Awake()
     {
-        Debug.Log("Awake");
-        EditorApplication.isPaused = true;
     }
 
 	void Start () {
         Trans = this.transform;
-        Debug.Log("Start");
 	}
 
 
@@ -103,19 +100,11 @@ public class CubeAction :  MonoBehaviour{
 
     void OnEnable()
     {
-        Debug.Log("OnEnable");
     }
 
     void OnDisable()
     {
-        Debug.Log("OnDisable : " + (int)Instruction.Health + " size = " + sizeof(Instruction));
 
-    }
-
-    enum Instruction : byte
-    {
-        Health = 0xFF,
-        
     }
 
     //public override void OnBeginDrag(PointerEventData data)

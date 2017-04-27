@@ -46,7 +46,7 @@ public class Main : MainBase {
 		this.ApplyProperties();
 		this.InitObjects();
 
-        GameLog.Level = GameLog.LogLevel.ERROR;
+        GameLog.Level = GameLog.LogLevel.DEBUG;
 	}
 
 	private void InstantiateObjects()
@@ -65,9 +65,8 @@ public class Main : MainBase {
 		this.AppSession.EventBus = this.EventBus;
 
         SceneManager.sceneLoaded += OnLevelLoaded;
-        /*
-         * 创建 Controllers
-         * */
+        SceneManager.activeSceneChanged += OnLevelActive;
+
 	}
 
 	private void InitObjects()
@@ -122,7 +121,14 @@ public class Main : MainBase {
     protected void  OnLevelLoaded(Scene s, LoadSceneMode m) {
         Debug.Log("Scene Name = " + s.name + " | " + "LoadSceneMode = " + m);
 
-        this.SceneStateManager.OnLevelWasLoaded(s.buildIndex);
+//        this.SceneStateManager.OnLevelWasLoaded(s.buildIndex);
+    }
+
+    protected void OnLevelActive(Scene previous, Scene current)
+    {
+        Debug.LogError("OnLevelActive" + previous.name + " | " + current.name);
+
+        this.SceneStateManager.OnLevelWasLoaded(current.buildIndex);
     }
 
 }
