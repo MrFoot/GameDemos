@@ -10,9 +10,9 @@ public class NetworkManager : Singleton<NetworkManager> {
 
 	}
 
-    public void Send(string serviceUrl, soulgame.network.HttpDoneCallback callback, byte[] data)
+    public void Send(string serviceUrl, HttpDoneCallback callback, byte[] data)
     {
 		string url = Url + serviceUrl;
-        soulgame.network.HttpLite.HttpRequest(url, callback, data);
+        HttpLite.HttpRequest(url, callback, data);
 	}
 }

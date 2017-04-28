@@ -1,29 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.IO;
-using System;
-using ServiceDat;
+using ProtoBuf;
+using System.Text;
 
-public class BaseService<T> : Singleton<T> where T : new()
+public abstract class BaseService<T>
 {
 
-	protected string ServiceUrl;
-
-	public virtual void Init() {
-
-	}
-
-    protected void SendData<K>(K msg, soulgame.network.HttpDoneCallback callback, bool encrypt = false) where K : ProtoBuf.IExtensible
-	{
-        //这里的memorystream，能否考虑重复使用，并预分配内存？这样在频繁调用的情况下，就不会不断的重复分配内存了。
-        MemoryStream data_ms = new MemoryStream();
-        ProtoBuf.Serializer.Serialize<K>(data_ms, msg);
-
-        NetworkManager.Instance.Send(ServiceUrl, callback, data_ms.ToArray());
-	}
-
-    protected void SendData(soulgame.network.HttpDoneCallback callback, bool encrypt = false)
+    protected abstract string ServiceUrl
     {
-        NetworkManager.Instance.Send(ServiceUrl, callback, null);
+        get;
+    }
+
+    protected void SendData<K>(K msg, HttpDoneCallback callback, bool openWait = false, bool askNet = false) where K : IExtensible
+    {
+        if (askNet)
+        {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                Main.Instance.SDKManager.OpenNet();
+                return;
+            }
+        }
+
+        if (openWait)
+        {
+            Main.Instance.GameNetwork.OpenWaitWindow(callback);
+        }
+
+        HttpLite.HttpRequest<K>(Main.Instance.GameNetwork.Url + ServiceUrl, callback, msg);
+    }
+
+    protected void SendDataNew<K>(K msg, HttpDoneCallback callback, bool openWait = false, bool askNet = false) where K : IExtensible
+    {
+        if (askNet)
+        {
+            if (Application.internetReachability == NetworkReachability.NotReachable)
+            {
+                Main.Instance.SDKManager.OpenNet();
+                return;
+            }
+        }
+
+        if (openWait)
+        {
+            Main.Instance.GameNetwork.OpenWaitWindow(callback);
+        }
+#if UNITY_EDITOR
+        Debug.Log("url:" + Main.Instance.GameNetwork.NewUrl + ServiceUrl);
+#endif
+        HttpLite.HttpRequest<K>(Main.Instance.GameNetwork.NewUrl + ServiceUrl, callback, msg);
     }
 }

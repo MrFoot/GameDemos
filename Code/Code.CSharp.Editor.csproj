@@ -109,6 +109,36 @@
     <Reference Include="System.Data">
       <HintPath>Assets\Editor\PathologicalGames\Lib\System.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Cmd">
+      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
+    </Reference>
+    <Reference Include="CmdSerializer">
+      <HintPath>Assets\Scripts\Library\CmdSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets\Scripts\Library\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.unity">
+      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>Assets\Editor\Lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>Assets\Editor\Lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>Assets\Editor\Lib\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>Assets\Editor\Lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>Assets\Editor\Lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Code.CSharp.Plugins.csproj">
@@ -122,8 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\AtlasMaker.cs" />
+    <Compile Include="Assets\Editor\BuglyPostBuild\AndroidPostProcess.cs" />
+    <Compile Include="Assets\Editor\BuglyPostBuild\BuglyPostProcessBuild.cs" />
+    <Compile Include="Assets\Editor\BuglyUnityEditorExtensions.cs" />
     <Compile Include="Assets\Editor\CreateAnimator.cs" />
     <Compile Include="Assets\Editor\CreateAssetsBundle.cs" />
+    <Compile Include="Assets\Editor\CreateAudioID.cs" />
     <Compile Include="Assets\Editor\CreateTableAsset.cs" />
     <Compile Include="Assets\Editor\CreateUnityClass.cs" />
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
@@ -131,11 +165,34 @@
     <Compile Include="Assets\Editor\PathologicalGames\PoolManager\PreRuntimePoolItemInspector.cs" />
     <Compile Include="Assets\Editor\PathologicalGames\PoolManager\SpawnPoolInspector.cs" />
     <Compile Include="Assets\Editor\TestEditor.cs" />
+    <Compile Include="Assets\Editor\XUPorter\MiniJSON\MiniJSON.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXBuildFile.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXBuildPhase.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXDictionary.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXFileReference.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXGroup.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXList.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXObject.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXParser.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXProject.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXSortedDictionary.cs" />
+    <Compile Include="Assets\Editor\XUPorter\PBX Editor\PBXVariantGroup.cs" />
+    <Compile Include="Assets\Editor\XUPorter\Plist\Plist.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCBuildConfiguration.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCConfigurationList.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCMod.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCPlist.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCProject.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XClass.cs" />
+    <Compile Include="Assets\Editor\XUPorter\XCodePostProcess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\904001\904001.xml" />
+    <None Include="Assets\ExceptionProbe.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\BuglyPlugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\BuglyPlugins\Android\res\values\strings.xml" />
     <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
-    <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
     <None Include="Assets\Shaders\Chapter5_simple.shader" />
     <None Include="Assets\Shaders\PlayerShader.shader" />
     <None Include="Assets\Shaders\TransparentShader.shader" />

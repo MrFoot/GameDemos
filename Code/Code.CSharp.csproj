@@ -64,6 +64,21 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Cmd">
+      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
+    </Reference>
+    <Reference Include="CmdSerializer">
+      <HintPath>Assets\Scripts\Library\CmdSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets\Scripts\Library\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.unity">
+      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Code.CSharp.Plugins.csproj">
@@ -80,6 +95,8 @@
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\ReallySimpleAudioSpawner.cs" />
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\ReallySimpleParticleSpawner.cs" />
     <Compile Include="Assets\PoolManagerExampleFiles\Scripts\SimpleSpawner.cs" />
+    <Compile Include="Assets\Samples\CallbackDelegate.cs" />
+    <Compile Include="Assets\Samples\Demo.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterAction.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterStates.cs" />
     <Compile Include="Assets\Scripts\Character\TestCharacter.cs" />
@@ -90,20 +107,27 @@
     <Compile Include="Assets\Scripts\Framework\Character\BaseModelCtrl.cs" />
     <Compile Include="Assets\Scripts\Framework\Character\BaseModelRenderCtrl.cs" />
     <Compile Include="Assets\Scripts\Framework\Character\CharacterBase.cs" />
-    <Compile Include="Assets\Scripts\Framework\EventBus.cs" />
-    <Compile Include="Assets\Scripts\Framework\EventId.cs" />
-    <Compile Include="Assets\Scripts\Framework\EventListenerList.cs" />
+    <Compile Include="Assets\Scripts\Framework\Event\EventBus.cs" />
+    <Compile Include="Assets\Scripts\Framework\Event\EventId.cs" />
+    <Compile Include="Assets\Scripts\Framework\Event\EventListenerList.cs" />
     <Compile Include="Assets\Scripts\Framework\GameLog.cs" />
     <Compile Include="Assets\Scripts\Framework\GameMain.cs" />
+    <Compile Include="Assets\Scripts\Framework\GlobalMacro.cs" />
     <Compile Include="Assets\Scripts\Framework\Level.cs" />
     <Compile Include="Assets\Scripts\Framework\Main.cs" />
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />
     <Compile Include="Assets\Scripts\Framework\Network\BaseService.cs" />
+    <Compile Include="Assets\Scripts\Framework\Network\GameNetwork.cs" />
     <Compile Include="Assets\Scripts\Framework\Network\HttpLite.cs" />
     <Compile Include="Assets\Scripts\Framework\Network\NetworkManager.cs" />
-    <Compile Include="Assets\Scripts\Framework\Network\PlayerService.cs" />
+    <Compile Include="Assets\Scripts\Framework\Protocal.cs" />
+    <Compile Include="Assets\Scripts\Framework\PurchaseManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\SceneSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Framework\ServiceTime.cs" />
+    <Compile Include="Assets\Scripts\Framework\SimpleJson\JsonSerialization.cs" />
     <Compile Include="Assets\Scripts\Framework\SimpleJson\SimpleJson.cs" />
-    <Compile Include="Assets\Scripts\Framework\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Framework\Sound\AudioResource.cs" />
+    <Compile Include="Assets\Scripts\Framework\Sound\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Framework\StateMachine\BaseState.cs" />
     <Compile Include="Assets\Scripts\Framework\StateMachine\BaseStateManager.cs" />
     <Compile Include="Assets\Scripts\Framework\StateMachine\StateManager.cs" />
@@ -113,9 +137,31 @@
     <Compile Include="Assets\Scripts\Framework\Thread\MainThread.cs" />
     <Compile Include="Assets\Scripts\Framework\Thread\SimpleWorker.cs" />
     <Compile Include="Assets\Scripts\Framework\Thread\ThreadExecutor.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\WindowBase.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\WindowID.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\WindowManager.cs" />
+    <Compile Include="Assets\Scripts\Framework\UI\WindowTemplate.cs" />
+    <Compile Include="Assets\Scripts\Framework\UserManager.cs" />
     <Compile Include="Assets\Scripts\Framework\UserPrefs.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\MainWindow.cs" />
+    <Compile Include="Assets\Scripts\GameSystem\TipsWindow.cs" />
     <Compile Include="Assets\Scripts\Pattern\ActorUnit.cs" />
     <Compile Include="Assets\Scripts\Pattern\CommondPattern.cs" />
+    <Compile Include="Assets\Scripts\Pattern\Singleton.cs" />
+    <Compile Include="Assets\Scripts\SDK\Analysis\UmengController.cs" />
+    <Compile Include="Assets\Scripts\SDK\Android\AndroidSDK.cs" />
+    <Compile Include="Assets\Scripts\SDK\ChannelItem.cs" />
+    <Compile Include="Assets\Scripts\SDK\EditorSDK.cs" />
+    <Compile Include="Assets\Scripts\SDK\IOS\IosSDK.cs" />
+    <Compile Include="Assets\Scripts\SDK\IPlatformSDK.cs" />
+    <Compile Include="Assets\Scripts\SDK\PublishAttr.cs" />
+    <Compile Include="Assets\Scripts\SDK\Push\PushData.cs" />
+    <Compile Include="Assets\Scripts\SDK\Push\PushManager.cs" />
+    <Compile Include="Assets\Scripts\SDK\SDKHandler.cs" />
+    <Compile Include="Assets\Scripts\SDK\SDKManager.cs" />
+    <Compile Include="Assets\Scripts\SDK\SDKProduct.cs" />
+    <Compile Include="Assets\Scripts\SDK\Share\ScreenShoot.cs" />
+    <Compile Include="Assets\Scripts\SDK\Share\ShareManager.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneController\BaseSceneController.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneController\StorySceneController.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneState\BaseSceneState.cs" />
@@ -143,29 +189,41 @@
     <Compile Include="Assets\Scripts\Test\SocketTest.cs" />
     <Compile Include="Assets\Scripts\Test\SortFunctions.cs" />
     <Compile Include="Assets\Scripts\Test\ThreadTest.cs" />
-    <Compile Include="Assets\Scripts\Util\AppSession.cs" />
-    <Compile Include="Assets\Scripts\Util\BuildConfig.cs" />
-    <Compile Include="Assets\Scripts\Util\CollectionUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\CryptoUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\DotDestory.cs" />
-    <Compile Include="Assets\Scripts\Util\EncryptUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\FileLogger.cs" />
-    <Compile Include="Assets\Scripts\Util\GameFile.cs" />
-    <Compile Include="Assets\Scripts\Util\GameObjectUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\GeometryUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\InvokeUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\Pair.cs" />
-    <Compile Include="Assets\Scripts\Util\ResourceManager.cs" />
-    <Compile Include="Assets\Scripts\Util\StringUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\TriangleUtils.cs" />
-    <Compile Include="Assets\Scripts\Util\UnityLogHandler.cs" />
-    <Compile Include="Assets\Scripts\protocol\ServiceDat.cs" />
+    <Compile Include="Assets\Scripts\Utils\AESTools.cs" />
+    <Compile Include="Assets\Scripts\Utils\AppSession.cs" />
+    <Compile Include="Assets\Scripts\Utils\Bezier.cs" />
+    <Compile Include="Assets\Scripts\Utils\BuildConfig.cs" />
+    <Compile Include="Assets\Scripts\Utils\CollectionUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\CryptoUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\DotDestory.cs" />
+    <Compile Include="Assets\Scripts\Utils\EncryptUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\FileLogger.cs" />
+    <Compile Include="Assets\Scripts\Utils\GameFile.cs" />
+    <Compile Include="Assets\Scripts\Utils\GameObjectUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\GeometryUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\InvokeUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\MD5Tool.cs" />
+    <Compile Include="Assets\Scripts\Utils\Pair.cs" />
+    <Compile Include="Assets\Scripts\Utils\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\StringUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\TimerManager.cs" />
+    <Compile Include="Assets\Scripts\Utils\TriangleUtils.cs" />
+    <Compile Include="Assets\Scripts\Utils\UnityLogHandler.cs" />
+    <Compile Include="Assets\Scripts\Utils\Utils.cs" />
+    <Compile Include="Assets\TestCase\TestCase.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Example\Example.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\Analytics.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\GA.cs" />
+    <Compile Include="Assets\UmengGameAnalytics\Scripts\UmengManager.cs" />
     <Compile Include="Assets\testTrig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Characters\904001\904001.xml" />
+    <None Include="Assets\ExceptionProbe.txt" />
+    <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\BuglyPlugins\Android\AndroidManifest.xml" />
+    <None Include="Assets\Plugins\BuglyPlugins\Android\res\values\strings.xml" />
     <None Include="Assets\Plugins\PathologicalGames\readme.txt" />
-    <None Include="Assets\Plugins\protobuf-net\Web\TODO.txt" />
     <None Include="Assets\Shaders\Chapter5_simple.shader" />
     <None Include="Assets\Shaders\PlayerShader.shader" />
     <None Include="Assets\Shaders\TransparentShader.shader" />

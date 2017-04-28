@@ -38,6 +38,36 @@ public class Main : MainBase {
 		private set;
 	}
 
+    public SDKManager SDKManager
+    {
+        get;
+        private set;
+    }
+
+    public ShareManager ShareManager
+    {
+        get;
+        private set;
+    }
+
+    public UserManager UserManager
+    {
+        get;
+        private set;
+    }
+
+    public GameNetwork GameNetwork
+    {
+        get;
+        private set;
+    }
+
+    public PurchaseManager PurchaseManager
+    {
+        get;
+        private set;
+    }
+
 	protected override void Awake() {
 		base.Awake ();
 
@@ -57,26 +87,38 @@ public class Main : MainBase {
 		this.EventBus = new EventBus ();
 		this.AppSession = new AppSession ();
         this.SceneStateManager = new SceneStateManager();
-
+        this.SDKManager = new SDKManager();
+        this.ShareManager = new ShareManager();
+        this.UserManager = new UserManager();
+        this.GameNetwork = new GameNetwork();
+        this.PurchaseManager = new PurchaseManager();
 	}
+
+    private void InitObjects()
+    {
+        this.AppSession.Init();
+        this.SceneStateManager.Init();
+
+        //初始化顺序不能变
+        this.TableManager.Init();
+        this.SDKManager.Init();
+        this.ShareManager.Init();
+        this.UserManager.Init();
+        this.GameNetwork.Init();
+        this.PurchaseManager.Init();
+
+        PrefabPathInfo.InitPrefabPath();
+    }
 
 	private void ApplyProperties()
 	{
 		this.AppSession.EventBus = this.EventBus;
 
         SceneManager.sceneLoaded += OnLevelLoaded;
-        SceneManager.activeSceneChanged += OnLevelActive;
-
+        //SceneManager.activeSceneChanged += OnLevelActive;
 	}
 
-	private void InitObjects()
-	{
-		this.AppSession.Init ();
-		this.SceneStateManager.Init();
 
-		//初始化顺序不能变
-		this.TableManager.Init ();
-	}
 
 	protected override void OnAppStart ()
 	{
@@ -105,6 +147,7 @@ public class Main : MainBase {
 	{
 		base.Update ();
 		this.SceneStateManager.OnUpdate();
+        TimerManager.Update(Time.deltaTime);
 	}
 
 	public void ClearPrefs()
@@ -119,9 +162,9 @@ public class Main : MainBase {
 	}
 
     protected void  OnLevelLoaded(Scene s, LoadSceneMode m) {
-        Debug.Log("Scene Name = " + s.name + " | " + "LoadSceneMode = " + m);
+        Debug.LogError("Scene Name = " + s.name + " | " + "LoadSceneMode = " + m);
 
-//        this.SceneStateManager.OnLevelWasLoaded(s.buildIndex);
+        this.SceneStateManager.OnLevelWasLoaded(s.buildIndex);
     }
 
     protected void OnLevelActive(Scene previous, Scene current)

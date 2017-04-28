@@ -27,7 +27,7 @@ public class GameMain : MonoBehaviour
 
     void Start()
     {
-        soulgame.network.HttpLite.Init();
+        HttpLite.Init();
     }
 	
 	// Update is called once per frame
@@ -39,12 +39,4 @@ public class GameMain : MonoBehaviour
 		}
 	}
 
-    void OnGUI()
-    {
-        if (GUILayout.Button("uplodate", GUILayout.Height(80)))
-        {
-            PlayerService.Instance.Init();
-            PlayerService.Instance.GetRandUserData();
-        }
-    }
 }

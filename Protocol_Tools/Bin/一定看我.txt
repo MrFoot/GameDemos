@@ -1,0 +1,9 @@
+1. 记事本打开CMDProtobufBuild.bat
+
+2. 修改 "C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe"为你自己的csc.exe路径
+
+3. 在上一个目录编辑完成proto文件后，双击CMDProtobufBuild.bat执行。
+
+4. dll文件会生成在dll文件夹下，复制到工程的Assets\Scripts\Library目录下。
+
+5. 需要python环境

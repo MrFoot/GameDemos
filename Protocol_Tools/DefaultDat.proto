@@ -1,0 +1,13 @@
+//默认返回数据格式
+
+//数据返回状态
+enum Status {
+	FAILURE = 0;
+	SUCCESS = 1;
+	MESSAGE = 2;
+}
+message Default_out {
+	required Status status = 1;//返回状态
+	required string info = 2;//返回描述
+	optional string message= 3;
+}

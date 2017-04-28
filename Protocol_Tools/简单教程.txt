@@ -1,0 +1,34 @@
+一个简单例子：
+message AllLevelDat {
+	required int32 curSection = 1;	//当前章节
+	required int32 curLevel = 2;	//当前关卡，上一个字段中的关卡
+	repeated SectionDat sections = 3;	//全部的关卡信息
+}
+
+//每个章节的数据
+message SectionDat {
+	required int32 sectionId = 1;	//对应数据表的id
+	required int32 getAwardTime = 2;	//领取星级奖励的次数
+	repeated int32 norLevels = 3;	//普通关卡星级
+	repeated int32 hardLevels = 4;	//精英关卡星级
+}
+
+
+
+解释：
+1. message 类似C#中的class，会生成一个类
+
+2. 3种类型修饰符optional, required, repeated
+	2.1 required 表示必须有的字段
+	2.2 optional 可选字段
+	2.3 repeated 类似List
+
+3. 类型：bool, double, float, int32, int64, string, bytes, enum, message(就是自己定义的)
+
+4. 后面1， 2， 3序号表示顺序，不是赋值。
+
+5. 了解更多访问：
+https://developers.google.com/protocol-buffers/?hl=zh-cn
+http://www.codeproject.com/Articles/642677/Protobuf-net-the-unofficial-manual
+https://github.com/mgravell/protobuf-net
+
