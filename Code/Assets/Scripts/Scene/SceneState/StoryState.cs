@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class StoryState : BaseSceneState
 {
@@ -14,6 +15,11 @@ public class StoryState : BaseSceneState
 			return Level.Test;
 		}
 	}
+
+    public override void OnEnter(FootStudio.Framework.BaseState<SceneAction> previousState, object data)
+    {
+        base.OnEnter(previousState, data);
+    }
 
 	public override void OnAction(SceneAction gameAction, object data)
 	{

@@ -12,7 +12,29 @@ public abstract class MainBase : MonoBehaviour {
 		DontDestroyOnLoad (this);
 		
 		Application.targetFrameRate = 60;
+        DeclearPlatform();
 	}
+
+    void DeclearPlatform()
+    {
+        string platform = "111";
+#if UNITY_EDITOR
+        platform = "unity编辑模式";
+#elif UNITY_XBOX360  
+       platform="XBOX360平台";  
+#elif UNITY_IPHONE  
+       platform="IPHONE平台";  
+#elif UNITY_ANDROID  
+       platform="ANDROID平台";  
+#elif UNITY_STANDALONE_OSX  
+       platform="OSX平台";  
+#elif UNITY_STANDALONE_WIN  
+       platform="Windows平台";  
+#else
+        platform="其他平台";  
+#endif
+        Debug.LogError("当前平台 ： " + platform);
+    }
 
 	// Use this for initialization
 	void Start () {

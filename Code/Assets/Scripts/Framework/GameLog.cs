@@ -3,9 +3,9 @@ using FootStudio.Threading;
 using System.Diagnostics;
 using System.Text;
 using UnityEngine;
+using FootStudio.Util;
 
-
-namespace FootStudio.Util
+namespace FootStudio.Framework
 {
 	public static class GameLog
 	{

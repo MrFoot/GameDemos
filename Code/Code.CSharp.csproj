@@ -113,6 +113,9 @@
     <Compile Include="Assets\Scripts\Framework\GameLog.cs" />
     <Compile Include="Assets\Scripts\Framework\GameMain.cs" />
     <Compile Include="Assets\Scripts\Framework\GlobalMacro.cs" />
+    <Compile Include="Assets\Scripts\Framework\Input\InputHelper.cs" />
+    <Compile Include="Assets\Scripts\Framework\Input\TouchController.cs" />
+    <Compile Include="Assets\Scripts\Framework\Input\TouchHandler.cs" />
     <Compile Include="Assets\Scripts\Framework\Level.cs" />
     <Compile Include="Assets\Scripts\Framework\Main.cs" />
     <Compile Include="Assets\Scripts\Framework\MainBase.cs" />

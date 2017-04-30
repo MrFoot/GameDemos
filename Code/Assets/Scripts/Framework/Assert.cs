@@ -3,8 +3,9 @@ using System.Collections;
 using System;
 using System.Globalization;
 using System.Collections.Generic;
+using FootStudio.Util;
 
-namespace FootStudio.Util
+namespace FootStudio.Framework
 {
 	public static class Assert {
 

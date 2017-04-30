@@ -1,5 +1,5 @@
 using System;
-using FootStudio.Util;
+using FootStudio.Framework;
 using System.Threading;
 
 namespace FootStudio.Threading

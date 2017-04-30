@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FootStudio.Framework;
 
 public class AssetDebug : MonoBehaviour {
 

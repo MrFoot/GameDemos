@@ -221,6 +221,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315533a5b245bff45b8be26eb9abe075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &370535379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 370535381}
+  - 114: {fileID: 370535380}
+  - 114: {fileID: 370535382}
+  m_Layer: 0
+  m_Name: SceneTouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &370535380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 370535379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7365de66b961bb7429f48dac1b023235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchDragThreshold: 20
+--- !u!4 &370535381
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 370535379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.976716, y: 3.6873064, z: 1.9662895}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!114 &370535382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 370535379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315533a5b245bff45b8be26eb9abe075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404620568
 GameObject:
   m_ObjectHideFlags: 0

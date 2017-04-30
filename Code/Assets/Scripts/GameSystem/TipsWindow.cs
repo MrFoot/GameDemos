@@ -8,8 +8,4 @@ public class TipsWindow : WindowBase {
         base.OnOpen(args);
     }
 
-    public void onClick()
-    {
-
-    }
 }

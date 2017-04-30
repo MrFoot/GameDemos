@@ -1,7 +1,7 @@
 using System;
 using FootStudio.Threading;
 using UnityEngine;
-
+using FootStudio.Framework;
 
 namespace FootStudio.Util
 {

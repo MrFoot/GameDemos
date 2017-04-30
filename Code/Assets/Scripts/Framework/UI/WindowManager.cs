@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using FootStudio.Util;
+using FootStudio.Framework;
 
 /// <summary>
 /// 加载资源路径基本结构

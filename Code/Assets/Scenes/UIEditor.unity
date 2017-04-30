@@ -310,8 +310,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1147793138}
-  - {fileID: 1871094116}
+  - {fileID: 853189427}
+  - {fileID: 1867901524}
   m_Father: {fileID: 603882099}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -346,12 +346,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1136, y: 640}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -375,7 +375,7 @@ Canvas:
   m_SortingLayerID: 713999541
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &1147793137
+--- !u!1001 &853189426
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -475,11 +475,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9330f41121c0c2542af9b48208e353dd, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1147793138 stripped
+--- !u!224 &853189427 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000013020524268, guid: 9330f41121c0c2542af9b48208e353dd,
     type: 2}
-  m_PrefabInternal: {fileID: 1147793137}
+  m_PrefabInternal: {fileID: 853189426}
 --- !u!1 &1686420500
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &1871094115
+--- !u!1001 &1867901523
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -643,11 +643,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39ec2e50de3930e439cc85023f3b9aba, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1871094116 stripped
+--- !u!224 &1867901524 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224000010936244680, guid: 39ec2e50de3930e439cc85023f3b9aba,
     type: 2}
-  m_PrefabInternal: {fileID: 1871094115}
+  m_PrefabInternal: {fileID: 1867901523}
 --- !u!1 &2103568118
 GameObject:
   m_ObjectHideFlags: 0

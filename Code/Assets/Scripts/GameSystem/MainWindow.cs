@@ -10,6 +10,7 @@ public class MainWindow : WindowBase {
 
     public void OnClick()
     {
+        Debug.LogError("MainWindow OnClick");
         WindowManager.OpenWindow((int)WindowType.TipsWindow);
     }
 }

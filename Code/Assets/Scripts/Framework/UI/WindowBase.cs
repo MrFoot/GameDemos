@@ -36,6 +36,7 @@ public abstract class WindowBase : MonoBehaviour
 	private System.Object[] m_initArgs = null;
 	private bool m_isPreLoad = false;
 	private Canvas m_canvas = null;
+    private RectTransform m_rectTrans = null;
     private WindowSortType CatchedSortType = WindowSortType.Normal;
     private int CatchedPriority = 65536;
 	public Canvas MainCanvas
@@ -258,6 +259,8 @@ public abstract class WindowBase : MonoBehaviour
 		MainObject = gameObject;
 		CatchedTransform = transform;
 		m_canvas = GetComponent<Canvas>();
+        m_rectTrans = GetComponent<RectTransform>();
+        //m_rectTrans.anc
 		//m_canvas.IsInherited = true;
         CatchedPriority = Priority;
         CatchedSortType = SortType;

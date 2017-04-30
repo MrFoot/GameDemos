@@ -10,6 +10,7 @@ public class StorySceneController : BaseSceneController
 
     void Awake()
     {
+        Debug.LogError("StorySceneController Awake");
         if (Main.Instance != null)
         {
             Main.Instance.SceneStateManager.StoryState.BaseSceneController = this;

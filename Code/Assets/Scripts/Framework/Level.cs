@@ -5,10 +5,7 @@ public class Level
 {
 	public enum LevelEnum
 	{
-        Aquarium,   //水族馆
         Story,      //剧情
-        Fisheries,  //渔场
-		Shop,    //商店
 	}
 
     public static readonly Level Test = new Level("Test", Level.LevelEnum.Story,true);

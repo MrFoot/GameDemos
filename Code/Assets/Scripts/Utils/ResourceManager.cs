@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Collections;
 
 
-namespace FootStudio.Util
+namespace FootStudio.Framework
 {
 	public static class ResourceManager
 	{

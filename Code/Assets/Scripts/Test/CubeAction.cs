@@ -3,24 +3,11 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEditor;
-
-public class TouchInfo
-{
-    public Vector3 pos;
-    public Vector3 lastPos;
-    public Vector3 delta;
-    public Vector3 totalDelta;
-
-    public bool dragStart;
-}
+using FootStudio.Framework;
 
 public class CubeAction :  MonoBehaviour{
 
-    private float touchDragThreshold = 20f * 20f;
-
     private Transform Trans;
-
-    private TouchInfo currentTouch = null;
 
     private bool active = false;
 
@@ -30,8 +17,30 @@ public class CubeAction :  MonoBehaviour{
 
 	void Start () {
         Trans = this.transform;
+        TouchController.Instance.Get(gameObject).AddTouchDownListener(OnTouchDown);
+        TouchController.Instance.Get(gameObject).AddTouchUpListener(OnTouchUp);
+        TouchController.Instance.Get(gameObject).AddDragListener(OnDrag);
 	}
 
+    void OnClick()
+    {
+        Debug.Log(gameObject.name + " OnClick");
+    }
+
+    void OnTouchDown()
+    {
+        Debug.Log(gameObject.name + " OnTouchDown");
+    }
+
+    void OnTouchUp(bool isClick)
+    {
+        Debug.Log(gameObject.name + " OnTouchUp isClick = " + isClick);
+    }
+
+    void OnDrag(Vector3 delta)
+    {
+        Debug.Log(gameObject.name + " OnDrag " + delta);
+    }
 
     void OnMouseEnter()
     {
@@ -45,47 +54,17 @@ public class CubeAction :  MonoBehaviour{
 
     void OnMouseDown()
     {
-        currentTouch = new TouchInfo();
-        currentTouch.pos = Input.mousePosition;
-        currentTouch.lastPos = Input.mousePosition;
-        currentTouch.delta = Vector3.zero;
-        currentTouch.totalDelta = Vector3.zero;
-        currentTouch.dragStart = false;
+
     }
 
     void OnMouseDrag()
     {
-        if(!currentTouch.dragStart)
-        {
-            currentTouch.pos = Input.mousePosition;
-            currentTouch.delta = currentTouch.pos - currentTouch.lastPos;
-            currentTouch.totalDelta += currentTouch.delta;
-            currentTouch.lastPos = Input.mousePosition;
 
-            float mag = currentTouch.totalDelta.sqrMagnitude;
-
-            if (mag > touchDragThreshold)
-            {
-                currentTouch.dragStart = true;
-                Debug.Log("dragStart");
-
-            }
-        }
     }
 
     void OnMouseUp()
     {
-        if (!currentTouch.dragStart)
-        {
-            OnClick();
-        }
 
-        currentTouch = null;
-    }
-
-    void OnClick()
-    {
-        Debug.Log("OnClick");
     }
 
     void OnBecameVisible()
@@ -192,9 +171,13 @@ public class CubeAction :  MonoBehaviour{
     //    MyDebug("OnUpdateSelected called.");
     //}
 
+    private void OnApplicationPause(bool gamePaused)
+    {
+        if (!gamePaused)
+            InputHelper.IsPointerOverGameObject();
+    }
 
 	void Update () {
-        if (active)
-            Trans.Rotate(Vector3.up,Time.deltaTime * 200);
+        
 	}
 }
