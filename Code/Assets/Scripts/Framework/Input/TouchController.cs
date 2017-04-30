@@ -24,6 +24,8 @@ namespace FootStudio.Framework
     {
         public float TouchDragThreshold = 20f;
 
+        public bool Debug = false;
+
         private Camera mainCamera;
         private TouchInfo currentTouch = null;
 
@@ -43,6 +45,7 @@ namespace FootStudio.Framework
 
         void Awake()
         {
+            Debug = false;
             TouchDragThreshold *= TouchDragThreshold;
 
             s_instance = this;
@@ -112,6 +115,8 @@ namespace FootStudio.Framework
 
         TouchInfo HandleTouchDown()
         {
+            if (Camera.main == null) return null;
+
             TouchInfo info = new TouchInfo();
             info.screenPos = Input.mousePosition;
             info.lastScreenPos = Input.mousePosition;
@@ -129,6 +134,10 @@ namespace FootStudio.Framework
                 {
                     if (ColliderTouchDownMapping[lastHitInfo.collider] != null)
                     {
+                        if (Debug)
+                        {
+                            GameLog.Debug(lastHitInfo.collider.name + " touchDown");
+                        }
                         ColliderTouchDownMapping[lastHitInfo.collider]();
                     }
                     
@@ -189,6 +198,10 @@ namespace FootStudio.Framework
             {
                 if (ColliderTouchUpMapping[info.lastHit] != null)
                 {
+                    if (Debug)
+                    {
+                        GameLog.Debug(info.lastHit.name + " touchUp, click:" + !info.dragStart);
+                    }
                     ColliderTouchUpMapping[info.lastHit](!info.dragStart);
                 }
             }
@@ -204,11 +217,17 @@ namespace FootStudio.Framework
             }
             else if (Input.GetMouseButton(0))
             {
-                HandleTouchStay(currentTouch);
+                if (currentTouch != null)
+                {
+                    HandleTouchStay(currentTouch);
+                }
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                HandleTouchUp(currentTouch);
+                if (currentTouch != null)
+                {
+                    HandleTouchUp(currentTouch);
+                }
             }
         }
 

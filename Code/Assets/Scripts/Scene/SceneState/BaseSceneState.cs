@@ -59,13 +59,17 @@ public abstract class BaseSceneState : BaseState<SceneAction>
     //这里处理一些在各个场景都要用到的事件，如 弹出警告框，货币更新等
 	public override void OnAction (SceneAction gameAction, object data)
 	{
-        GameLog.Debug(Tag + " OnAction " + gameAction);
+        //GameLog.Debug("current State : " + Tag + " OnAction " + gameAction);
+        SceneStateManager mgr = this.SceneStateManager as SceneStateManager;
         switch (gameAction)
         {
             case SceneAction.Tips:
-                return;
+                break;
+            case SceneAction.BackButton:
+                this.ChangeState(mgr.InitialState);
+                break;
             default:
-                
+                GameLog.Debug(Tag + ":" + gameAction + " No Match");
                 break;
         }
 	}

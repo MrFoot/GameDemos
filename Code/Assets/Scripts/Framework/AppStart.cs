@@ -122,7 +122,7 @@ public class AppStart : MonoBehaviour {
 		//关闭Loading页面
 		ResourceManager.UnloadUnusedResources ();
 		Destroy (this.gameObject);
-        Debug.Log("Destoryed");
+        Debug.Log("Destroy AppStart");
 	}
 
 	/// <summary>

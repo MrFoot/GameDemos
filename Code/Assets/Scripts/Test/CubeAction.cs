@@ -17,9 +17,7 @@ public class CubeAction :  MonoBehaviour{
 
 	void Start () {
         Trans = this.transform;
-        TouchController.Instance.Get(gameObject).AddTouchDownListener(OnTouchDown);
         TouchController.Instance.Get(gameObject).AddTouchUpListener(OnTouchUp);
-        TouchController.Instance.Get(gameObject).AddDragListener(OnDrag);
 	}
 
     void OnClick()
@@ -34,7 +32,10 @@ public class CubeAction :  MonoBehaviour{
 
     void OnTouchUp(bool isClick)
     {
-        Debug.Log(gameObject.name + " OnTouchUp isClick = " + isClick);
+        if (isClick)
+        {
+            Debug.Log(gameObject.name + " Click");
+        }
     }
 
     void OnDrag(Vector3 delta)

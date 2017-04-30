@@ -1,11 +1,11 @@
 using System;
 using UnityEngine;
 
-public class StoryState : BaseSceneState
+public class TestState : BaseSceneState
 {
-	public StoryState(SceneStateManager stateManager) : base(stateManager)
+	public TestState(SceneStateManager stateManager) : base(stateManager)
 	{
-		this.BaseSceneController = new StorySceneController ();
+		this.BaseSceneController = new TestSceneController();
 	}
 
 	public override Level LevelEnum

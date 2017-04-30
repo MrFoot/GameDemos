@@ -5,10 +5,15 @@ public class Level
 {
 	public enum LevelEnum
 	{
-        Story,      //剧情
+        Initial,
+        Test,
+        Game_1
 	}
 
-    public static readonly Level Test = new Level("Test", Level.LevelEnum.Story,true);
+    //Scene在这里注册
+    public static readonly Level Initial = new Level("Initial", Level.LevelEnum.Initial, true);
+    public static readonly Level Test = new Level("Test", Level.LevelEnum.Test, true);
+    public static readonly Level Game1 = new Level("Game1", Level.LevelEnum.Game_1, true);
 
 	public static readonly Level[] All = new Level[]
 	{

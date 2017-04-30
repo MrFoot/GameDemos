@@ -6,6 +6,13 @@ using System.Collections;
 /// </summary>
 public abstract class BaseSceneController : MonoBehaviour{
 
+    public string Tag
+    {
+        get
+        {
+            return GetType().Name;
+        }
+    }
 	public virtual void OnEnter() {
 	}
 

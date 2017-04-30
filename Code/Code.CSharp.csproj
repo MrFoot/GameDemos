@@ -166,11 +166,15 @@
     <Compile Include="Assets\Scripts\SDK\Share\ScreenShoot.cs" />
     <Compile Include="Assets\Scripts\SDK\Share\ShareManager.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneController\BaseSceneController.cs" />
-    <Compile Include="Assets\Scripts\Scene\SceneController\StorySceneController.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneController\Game1SceneController.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneController\InitialSceneController1.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneController\TestSceneController.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneState\BaseSceneState.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneState\Game1State.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneState\InitialState.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneState\SceneAction.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneState\SceneStateManager.cs" />
-    <Compile Include="Assets\Scripts\Scene\SceneState\StoryState.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneState\TestState.cs" />
     <Compile Include="Assets\Scripts\Table\FarmLandTable.cs" />
     <Compile Include="Assets\Scripts\Table\FarmLandTableDataFile.cs" />
     <Compile Include="Assets\Scripts\Table\FarmSeedTable.cs" />

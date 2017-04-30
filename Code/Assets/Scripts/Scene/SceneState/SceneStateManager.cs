@@ -20,9 +20,18 @@ public class SceneStateManager : BaseStateManager<SceneAction>
 	public bool blockUpdatesOnStart = false;
 
 	#region State
+    public InitialState InitialState
+    {
+        get;
+        private set;
+    }
 
-    //剧情
-    public StoryState StoryState
+    public TestState TestState
+    {
+        get;
+        private set;
+    }
+    public Game1State Game1State
     {
         get;
         private set;
@@ -32,13 +41,14 @@ public class SceneStateManager : BaseStateManager<SceneAction>
 
 	public SceneStateManager()
 	{
-		this.StoryState = new StoryState(this);
-
+        this.InitialState = new InitialState(this);
+        this.TestState = new TestState(this);
+        this.Game1State = new Game1State(this);
 	}
 	
 	public override void Init()
 	{
-        this.EnterInitialState(this.StoryState);
+        this.EnterInitialState(this.InitialState);
 	}
 	
 	public override void OnUpdate()
