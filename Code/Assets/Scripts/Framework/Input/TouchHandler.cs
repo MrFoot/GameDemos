@@ -24,14 +24,20 @@ namespace FootStudio.Framework
 
         protected virtual void OnEnable()
         {
-            TouchController.Instance.RegisterOnTouchDown(mCollider, m_touch_down_delegate);
-            TouchController.Instance.RegisterOnTouchUp(mCollider, m_touch_up_delegate);
-            TouchController.Instance.RegisterOnDrag(mCollider, m_drag_delegate);
+            if (TouchController.Instance != null)
+            {
+                TouchController.Instance.RegisterOnTouchDown(mCollider, m_touch_down_delegate);
+                TouchController.Instance.RegisterOnTouchUp(mCollider, m_touch_up_delegate);
+                TouchController.Instance.RegisterOnDrag(mCollider, m_drag_delegate);
+            }
         }
 
         protected virtual void OnDisable()
         {
-            TouchController.Instance.UnRegistAllTouch(mCollider);
+            if (TouchController.Instance != null)
+            {
+                TouchController.Instance.UnRegistAllTouch(mCollider);
+            }
         }
 
         #region TouchDown

@@ -117,7 +117,7 @@ public class AppStart : MonoBehaviour {
         yield return this.AsyncMain;
         
         Debug.Log("+++++++++++++ AsyncMain.Done");
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		//关闭Loading页面
 		ResourceManager.UnloadUnusedResources ();

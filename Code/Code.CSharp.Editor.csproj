@@ -109,35 +109,20 @@
     <Reference Include="System.Data">
       <HintPath>Assets\Editor\Lib\System.Data.dll</HintPath>
     </Reference>
-    <Reference Include="NPOI">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data">
-      <HintPath>Assets\Editor\PathologicalGames\Lib\System.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="zxing.unity">
-      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="Cmd">
+      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
     </Reference>
     <Reference Include="CmdSerializer">
       <HintPath>Assets\Scripts\Library\CmdSerializer.dll</HintPath>
     </Reference>
-    <Reference Include="Cmd">
-      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>Assets\Scripts\Library\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.unity">
+      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

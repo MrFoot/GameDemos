@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1002 &400001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -43,14 +44,19 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59dfbc0f4f3a98b4ebf4ad40fc3f43aa, type: 3}
   m_Name: 
+  m_EditorClassIdentifier: 
   poolName: Shapes
   matchPoolScale: 0
   matchPoolLayer: 1
-  dontDestroyOnLoad: 0
-  logMessages: 0
+  dontReparent: 0
+  _dontDestroyOnLoad: 0
+  logMessages: 1
   _perPrefabPoolOptions:
   - prefab: {fileID: 400000, guid: 27d432f15cb27a4408d64a6acab4d8a7, type: 2}
     preloadAmount: 10
+    preloadTime: 0
+    preloadFrames: 2
+    preloadDelay: 0
     limitInstances: 0
     limitAmount: 5
     limitFIFO: 1
@@ -58,9 +64,13 @@ MonoBehaviour:
     cullAbove: 10
     cullDelay: 2
     cullMaxPerPass: 10
-    _logMessages: 1
+    _logMessages: 0
+    spawnPool: {fileID: 0}
   - prefab: {fileID: 400000, guid: e416f715befa6314da934f2cc5c9d4fd, type: 2}
     preloadAmount: 5
+    preloadTime: 0
+    preloadFrames: 2
+    preloadDelay: 0
     limitInstances: 0
     limitAmount: 0
     limitFIFO: 0
@@ -69,6 +79,7 @@ MonoBehaviour:
     cullDelay: 0
     cullMaxPerPass: 0
     _logMessages: 0
+    spawnPool: {fileID: 0}
   maxParticleDespawnTime: 30
 --- !u!1002 &11400001
 EditorExtensionImpl:
@@ -84,7 +95,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6

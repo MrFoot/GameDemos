@@ -110,6 +110,11 @@ namespace PathologicalGames
 			if (!this.onCreatedDelegates.ContainsKey(poolName))
 			{
 				this.onCreatedDelegates.Add(poolName, createdDelegate);
+
+				Debug.Log(string.Format(
+					"Added onCreatedDelegates for pool '{0}': {1}", poolName, createdDelegate.Target)
+				);
+
 				return;
 			}
 			
@@ -125,6 +130,10 @@ namespace PathologicalGames
 				);
 			
 			this.onCreatedDelegates[poolName] -= createdDelegate;
+
+			Debug.Log(string.Format(
+				"Removed onCreatedDelegates for pool '{0}': {1}", poolName, createdDelegate.Target)
+			);
 		}
 		
 		#endregion Event Handling
@@ -263,7 +272,7 @@ namespace PathologicalGames
 
             // Remove it from the dict in case the user re-creates a SpawnPool of the 
             //  same name later
-            //this._pools.Remove(spawnPool.poolName);
+            this._pools.Remove(spawnPool.poolName);  
 
             return true;
         }
@@ -277,10 +286,13 @@ namespace PathologicalGames
         public void DestroyAll()
         {
             foreach (KeyValuePair<string, SpawnPool> pair in this._pools)
-                UnityEngine.Object.Destroy(pair.Value);
+			{
+				Debug.Log("DESTROYING: " + pair.Value.gameObject.name);
+                UnityEngine.Object.Destroy(pair.Value.gameObject);
+			}
 
             // Clear the dict in case the user re-creates a SpawnPool of the same name later
-            this._pools.Clear();
+			this._pools.Clear(); 
         }
         #endregion Public Custom Memebers
 
@@ -308,7 +320,9 @@ namespace PathologicalGames
             }
 
             this._pools.Add(spawnPool.poolName, spawnPool);
-			
+
+			Debug.Log(string.Format("Added pool '{0}'", spawnPool.poolName));
+
 			if (this.onCreatedDelegates.ContainsKey(spawnPool.poolName))
 				 this.onCreatedDelegates[spawnPool.poolName](spawnPool);
         }
@@ -331,11 +345,12 @@ namespace PathologicalGames
         /// <param name="spawnPool"></param>
         internal bool Remove(SpawnPool spawnPool)
         {
-            if (!this.ContainsKey(spawnPool.poolName) & Application.isPlaying)
+            if (!this.ContainsValue(spawnPool) & Application.isPlaying)
             {
-                Debug.LogError(string.Format("PoolManager: Unable to remove '{0}'. " +
-                                                "Pool not in PoolManager",
-                                            spawnPool.poolName));
+                Debug.LogError(string.Format(
+					"PoolManager: Unable to remove '{0}'. Pool not in PoolManager",
+                     spawnPool.poolName
+				));
                 return false;
             }
 
@@ -368,7 +383,17 @@ namespace PathologicalGames
             return this._pools.ContainsKey(poolName);
         }
 
-        /// <summary>
+		/// <summary>
+		/// Returns true if a SpawnPool instance exists in this Pools dict.
+		/// </summary>
+		/// <param name="poolName">The name to look for</param>
+		/// <returns>True if the pool exists, otherwise, false.</returns>
+		public bool ContainsValue(SpawnPool pool)
+		{
+			return this._pools.ContainsValue(pool);
+		}
+
+		/// <summary>
         /// Used to get a SpawnPool when the user is not sure if the pool name is used.
         /// This is faster than checking IsPool(poolName) and then accessing Pools][poolName.]
         /// </summary>
@@ -385,8 +410,10 @@ namespace PathologicalGames
         #region Not Implimented
         public bool Contains(KeyValuePair<string, SpawnPool> item)
         {
-            string msg = "Use PoolManager.Pools.Contains(string poolName) instead.";
-            throw new System.NotImplementedException(msg);
+			throw new System.NotImplementedException(
+				"Use PoolManager.Pools.ContainsKey(string poolName) or " +
+				"PoolManager.Pools.ContainsValue(SpawnPool pool) instead."
+			);
         }
 
         public SpawnPool this[string key]

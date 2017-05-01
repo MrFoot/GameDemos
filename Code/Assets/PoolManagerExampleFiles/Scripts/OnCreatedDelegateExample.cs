@@ -3,13 +3,15 @@ using PathologicalGames;
 
 public class OnCreatedDelegateExample : MonoBehaviour 
 {
+	public string poolName = "Shapes";
+
 	private void Awake() 
 	{
-		PoolManager.Pools.AddOnCreatedDelegate("Audio", this.RunMe);
+		PoolManager.Pools.AddOnCreatedDelegate(this.poolName, this.RunMe);
 	}
 	
 	public void RunMe(SpawnPool pool)
 	{
-		Debug.Log("Delegate ran for pool " + pool.poolName);
+		Debug.Log("OnCreatedDelegateExample RunMe ran for pool " + pool.poolName);
 	}
 }

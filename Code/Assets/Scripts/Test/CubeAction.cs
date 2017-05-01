@@ -17,7 +17,10 @@ public class CubeAction :  MonoBehaviour{
 
 	void Start () {
         Trans = this.transform;
-        TouchController.Instance.Get(gameObject).AddTouchUpListener(OnTouchUp);
+        if (TouchController.Instance != null)
+        {
+            TouchController.Instance.Get(gameObject).AddTouchUpListener(OnTouchUp);
+        }
 	}
 
     void OnClick()

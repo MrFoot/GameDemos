@@ -64,20 +64,20 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="zxing.unity">
-      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="Cmd">
+      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
     </Reference>
     <Reference Include="CmdSerializer">
       <HintPath>Assets\Scripts\Library\CmdSerializer.dll</HintPath>
     </Reference>
-    <Reference Include="Cmd">
-      <HintPath>Assets\Scripts\Library\Cmd.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets\Scripts\Library\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="protobuf-net">
       <HintPath>Assets\Scripts\Library\protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.unity">
+      <HintPath>Assets\Scripts\Library\zxing.unity.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
